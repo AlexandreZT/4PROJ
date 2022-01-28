@@ -9,13 +9,10 @@ export default class Home extends Component {
   }
 
   selectUsersDataForDashboard = this.selectUsersDataForDashboard.bind(this);
-  selectCooksDataForDashboard = this.selectCooksDataForDashboard.bind(this);
-  selectCustomersDataForDashboard = this.selectCustomersDataForDashboard.bind(this);
-  selectWaitersDataForDashboard = this.selectWaitersDataForDashboard.bind(this);
-  selectBarmenDataForDashboard = this.selectBarmenDataForDashboard.bind(this);
-  selectMenuDataForDashboard = this.selectMenuDataForDashboard.bind(this);
-  selectDrinksDataForDashboard = this.selectDrinksDataForDashboard.bind(this);
-  selectFoodsDataForDashboard = this.selectFoodsDataForDashboard.bind(this);
+  selectStudentsDataForDashboard = this.selectStudentsDataForDashboard.bind(this);
+  selectStaffsDataForDashboard = this.selectStaffsDataForDashboard.bind(this);
+  selectTutorsDataForDashboard = this.selectTutorsDataForDashboard.bind(this);
+  selectTeachersDataForDashboard = this.selectTeachersDataForDashboard.bind(this);
   loadData = this.loadData.bind(this);
 
   getUsersData() {
@@ -30,22 +27,6 @@ export default class Home extends Component {
             <td>{this.state.dashboard_data[id]["type"]}</td>
           </tr>;
       });
-    } else {
-        return <p>data is not available</p>;
-    }
-  }
-
-  getMenuData() {
-    if (this.state.dashboard_data) {
-        return Object.keys(this.state.dashboard_data).map( (id) => {
-          return <tr>
-            <td>{id}</td>
-            <td>{this.state.dashboard_data[id]["name"]}</td>
-            <td>{this.state.dashboard_data[id]["description"]}</td>
-            <td>{this.state.dashboard_data[id]["price"]}</td>
-            <td>{this.state.dashboard_data[id]["type"]}</td>
-          </tr>;
-        });
     } else {
         return <p>data is not available</p>;
     }
@@ -80,44 +61,26 @@ export default class Home extends Component {
     });
   }
 
-  selectCooksDataForDashboard() {
-    this.setState({ displayed_data: "cooks" }, () => {
+  selectStudentsDataForDashboard() {
+    this.setState({ displayed_data: "students" }, () => {
       this.loadData()
     });
   }
 
-  selectCustomersDataForDashboard() {
-    this.setState({ displayed_data: "customers" }, () => {
+  selectStaffsDataForDashboard() {
+    this.setState({ displayed_data: "staffs" }, () => {
       this.loadData()
     });
   }
   
-  selectWaitersDataForDashboard() {
-    this.setState({ displayed_data: "waiters" }, () => {
+  selectTutorsDataForDashboard() {
+    this.setState({ displayed_data: "tutors" }, () => {
       this.loadData()
     });
   }
 
-  selectBarmenDataForDashboard() {
-    this.setState({ displayed_data: "barmen" }, () => {
-      this.loadData()
-    });
-  }
-
-  selectMenuDataForDashboard() {
-    this.setState({ displayed_data: "menu" }, () => {
-      this.loadData()
-    });
-  }
-  
-  selectDrinksDataForDashboard() {
-    this.setState({ displayed_data: "drinks" }, () => {
-      this.loadData()
-    });
-  }
-
-  selectFoodsDataForDashboard() {
-    this.setState({ displayed_data: "foods" }, () => {
+  selectTeachersDataForDashboard() {
+    this.setState({ displayed_data: "teachers" }, () => {
       this.loadData()
     });
   }
@@ -126,24 +89,20 @@ export default class Home extends Component {
     return (
       <div>      
         <div style={{textAlign: "center"}}>
-          <button style={{width: "calc(100% / 8)"}} onClick={this.selectUsersDataForDashboard}>Users</button>
-          <button style={{width: "calc(100% / 8)"}} onClick={this.selectCooksDataForDashboard}>Cooks</button>
-          <button style={{width: "calc(100% / 8)"}} onClick={this.selectCustomersDataForDashboard}>Customers</button> 
-          <button style={{width: "calc(100% / 8)"}} onClick={this.selectWaitersDataForDashboard}>Waiters</button>
-          <button style={{width: "calc(100% / 8)"}} onClick={this.selectBarmenDataForDashboard}>Barmen</button> 
-          <button style={{width: "calc(100% / 8)"}} onClick={this.selectMenuDataForDashboard}>Menu</button>
-          <button style={{width: "calc(100% / 8)"}} onClick={this.selectDrinksDataForDashboard}>Drinks</button>
-          <button style={{width: "calc(100% / 8)"}} onClick={this.selectFoodsDataForDashboard}>Foods</button> 
-        </div>
-          
+          <button style={{width: "calc(100% / 5)"}} onClick={this.selectUsersDataForDashboard}>Users</button>
+          <button style={{width: "calc(100% / 5)"}} onClick={this.selectStudentsDataForDashboard}>Students</button>
+          <button style={{width: "calc(100% / 5)"}} onClick={this.selectStaffsDataForDashboard}>Staffs</button> 
+          <button style={{width: "calc(100% / 5)"}} onClick={this.selectTutorsDataForDashboard}>Tutors</button>
+          <button style={{width: "calc(100% / 5)"}} onClick={this.selectTeachersDataForDashboard}>Teachers</button> 
+        </div>          
         <table style={{width: "100%"}} border={2} cellPadding={5}>
           <thead>
             {
               (this.state.displayed_data==="users" || 
-              this.state.displayed_data==="cooks" ||
-              this.state.displayed_data==="barmen" ||
-              this.state.displayed_data==="waiters" ||
-              this.state.displayed_data==="customers") ?
+              this.state.displayed_data==="students" ||
+              this.state.displayed_data==="staffs" ||
+              this.state.displayed_data==="tutors" ||
+              this.state.displayed_data==="teachers") &&
               <tr>
                 <td>id</td>
                 <td>email</td>
@@ -151,31 +110,17 @@ export default class Home extends Component {
                 <td>lastname</td>
                 <td>phone</td>
                 <td>type</td>
-              </tr> :
-              (this.state.displayed_data==="menu" || 
-              this.state.displayed_data==="foods" ||
-              this.state.displayed_data==="drinks") &&
-              <tr>
-                <td>id</td>                
-                <td>name</td>
-                <td>description</td>
-                <td>price</td>
-                <td>type</td>
-              </tr>              
+              </tr>          
             }            
           </thead>
           <tbody>
           { 
             (this.state.displayed_data==="users" || 
-            this.state.displayed_data==="cooks" ||
-            this.state.displayed_data==="barmen" ||
-            this.state.displayed_data==="waiters" ||
-            this.state.displayed_data==="customers") ?
-            this.getUsersData():
-            (this.state.displayed_data==="menu" || 
-            this.state.displayed_data==="foods" ||
-            this.state.displayed_data==="drinks") &&
-            this.getMenuData()
+            this.state.displayed_data==="students" ||
+            this.state.displayed_data==="staffs" ||
+            this.state.displayed_data==="tutors" ||
+            this.state.displayed_data==="teachers") &&
+            this.getUsersData()
           }
           </tbody> 
         </table>

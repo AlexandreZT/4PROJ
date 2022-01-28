@@ -44,7 +44,7 @@ def get_user_data_with_id(db, id):
     return db.child("users").child(id).get().val()
 
 def update_user_data_with_id(db, id, firstname, lastname, email, phone, type):    
-    types = ["owner", "customer", "cook", "waiter", "barman"]
+    types = ["students", "teachers", "staffs", "tutors"]
 
     try:
         data = db.child("users").child(id).get().val()
@@ -79,57 +79,49 @@ def update_user_data_with_id(db, id, firstname, lastname, email, phone, type):
     except:
         return 404
     
-def get_all_cooks_data(db):
+def get_all_students_data(db):
     users = db.child("users").get()
     data={}
 
     for user in users.each():
-        if user.val()['type'] == "cook":
+        if user.val()['type'] == "students":
             data.update({user.key() : user.val()})
 
     return data
 
-def get_all_waiters_data(db):
+def get_all_teachers_data(db):
     users = db.child("users").get()
     data={}
 
     for user in users.each():
-        if user.val()['type'] == "waiter":
+        if user.val()['type'] == "teachers":
             data.update({user.key() : user.val()})
 
     return data
 
-def get_all_customers_data(db):
+def get_all_staffs_data(db):
     users = db.child("users").get()
     data={}
 
     for user in users.each():
-        if user.val()['type'] == "customer":
+        if user.val()['type'] == "staffs":
             data.update({user.key() : user.val()})
 
     return data
 
-def get_all_owners_data(db):
+def get_all_tutors_data(db):
     users = db.child("users").get()
     data={}
 
     for user in users.each():
-        if user.val()['type'] == "owner":
+        if user.val()['type'] == "tutors":
             data.update({user.key() : user.val()})
 
     return data
 
-def get_all_barmen_data(db):
-    users = db.child("users").get()
-    data={}
-
-    for user in users.each():
-        if user.val()['type'] == "barman":
-            data.update({user.key() : user.val()})
-
-    return data    
 
 def delete_user_with_id(db, id, auth):
+    # TODO delete user in Authentication service bcoz there is no duplication
     # user = auth.sign_in_with_email_and_password(email, password)
     # auth.delete_user_account(user['idToken']) # must be signed in 
     db.child("users").child(id).remove()

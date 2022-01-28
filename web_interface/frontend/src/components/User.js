@@ -228,9 +228,10 @@ export default class User extends Component {
                         <div className="form-group">
                             <label>Role</label><br/>
                             <select name="type">                                
-                                <option value="barman">Barman</option>
-                                <option value="cook">Cook</option>
-                                <option value="waiter">Waiter</option>
+                                <option value="students">Students</option>
+                                <option value="staffs">Staffs</option>
+                                <option value="tutors">Tutors</option>
+                                <option value="teachers">Teachers</option>
                             </select>
                         </div>
                         <br/>
@@ -297,9 +298,10 @@ export default class User extends Component {
                             <label>Role</label><br/>
                             <select name="type">
                                 <option value="">New Role</option>
-                                <option value="barman">Barman</option>
-                                <option value="cook">Cook</option>
-                                <option value="waiter">Waiter</option>
+                                <option value="students">Students</option>
+                                <option value="staffs">Staffs</option>
+                                <option value="tutors">Tutors</option>
+                                <option value="teachers">Teachers</option>
                             </select>
                         </div>
                         <br/>
