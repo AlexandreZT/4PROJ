@@ -15,6 +15,7 @@ export default class Home extends Component {
   selectTeachersDataForDashboard = this.selectTeachersDataForDashboard.bind(this);
   loadData = this.loadData.bind(this);
 
+  // mettre à jours la fonction pour afficher les données, les clés dict posent pb dans cette fonction
   getUsersData() {
     if (this.state.dashboard_data) {       
         return Object.keys(this.state.dashboard_data).map( (id) => {
@@ -23,7 +24,7 @@ export default class Home extends Component {
             <td>{this.state.dashboard_data[id]["email"]}</td>
             <td>{this.state.dashboard_data[id]["firstname"]}</td>
             <td>{this.state.dashboard_data[id]["lastname"]}</td>
-            <td>{this.state.dashboard_data[id]["phone"]}</td>
+            <td>{this.state.dashboard_data[id]["campus"]}</td>
             <td>{this.state.dashboard_data[id]["type"]}</td>
           </tr>;
       });
@@ -108,7 +109,7 @@ export default class Home extends Component {
                 <td>email</td>
                 <td>firstname</td>
                 <td>lastname</td>
-                <td>phone</td>
+                <td>campus</td>
                 <td>type</td>
               </tr>          
             }            
@@ -119,8 +120,8 @@ export default class Home extends Component {
             this.state.displayed_data==="students" ||
             this.state.displayed_data==="staffs" ||
             this.state.displayed_data==="tutors" ||
-            this.state.displayed_data==="teachers") &&
-            this.getUsersData()
+            this.state.displayed_data==="teachers") 
+            // && this.getUsersData()  // mettre à jours la fonction avant d'essayer d'afficher les données
           }
           </tbody> 
         </table>

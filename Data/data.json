@@ -1,0 +1,91 @@
+{
+    "users": {
+        "id1": {
+            "lastname" : "Jessel",
+            "firstname" :"Sunny",
+            "email" : "sunnyjessel@supinfo.com",
+            "password": "crypted",
+            "campus": "Distanciel",
+            "type": {
+                "type_name": "students",
+                "students_details" : {
+                    "date_of_birth"	:"02/10/1979",
+		            "year_of_birth"	:"1979",
+		            "street_address":"40 Nova Crossing",
+                    "gender": "male",
+                    "region": "str",
+                    "level":"M.ENG 1",
+		            "speciality":"Intelligence Artificielle",
+                    "contratPro" : "true",
+                    "previous_level":"Bac",
+                    "nbre_absence":4,
+                    "age_of_entry": 22,
+                    "alternant" : {
+                        "is_hired"	:"true",
+                        "lenght_month_hired": 3,
+                        "company_hired"	:"Wavestone",
+                        "entreprise_alternance"	:"Adobe",
+                        "entreprise_alternance_address"	:"3 Holy Cross Avenue",
+                        "poste_occupe"	:"Software Engineer",
+                        "secteur_entreprise" :"Software",
+                        "date_debut_alternance":"2021-11-11 13:14:55 UTC"
+                    },
+                    "compta": {
+                        "entry_level": "B.ENG 1",
+                        "year_of_entry"	: 2001,
+                        "year_of_exit"	: 2003,
+                        "study_lenght"	: 2,
+                        "level_of_exit"	: "B.ENG 2",
+                        "still_student"	: false,	
+                        "compta_payment_type": "Comptant/OPCA/Echelonnement",	
+                        "compta_paid"	: true,
+                        "compta_payment_due": 0,	
+                        "compta_relance": false
+                    },                    
+                    "pedago": {
+		                "Xmodules": {
+                            "4DVOP": {
+                                "module_name": "DevOps Engineer",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "3MERN": {
+                                "module_name": "Full Stack Developer",
+                                "note" : 17.5,
+                                "comment":"Très bon travail"
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "903": {
+            "lastname" : "Plomer",
+            "firstname" :"Vitoria",
+            "email" : "vitoriaplomer@supinfo.com",
+            "password": "crypted",
+            "campus":"Caen",
+            "type": {
+                "type_name": "staff",
+                "details" : {
+                    "role":"Full Professor"
+                }
+            }
+
+        },
+        "1640": {
+            "lastname" : "Tideswell",
+            "firstname" :"Mara",
+            "email" : "maratideswell@supinfo.com",
+            "password": "crypted",
+            "campus":"Caen",
+            "type": {
+                "type_name": "teachers",
+                "details": {
+                    "module_enseignees": ["2LPIC", "3LPIC", "4LPIC"]
+                }   
+            }
+        }      
+    }
+}
