@@ -92,6 +92,20 @@ def create_user():
 
     return Response(status=200)
 
+# test create student route (to implement when working)
+@app.route('/create-student', methods=['GET'])
+def create_student():
+    if request.method != 'GET': 
+        return Response(status=404)
+    users.create_student(
+        db,
+        auth,
+        firstname="Alexandre",
+        lastname="zitouni tinlot",
+        email="azt72629@gmail.com"
+    )
+    return Response(status=200)
+
 @app.route('/sign-in', methods=['POST'])
 def sign_in():
     if request.method != 'POST': 
