@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-
 import '../style/form.css';
 
 
 function login() {
 
-    function hello (e) {
+    function handleSubmit (e) {
 		e.preventDefault()
         if (e.target[0].value === "" ||  // email format already checked
             e.target[1].value === "" || e.target[1].value.length < 8) { // len 8 mini
@@ -31,13 +29,12 @@ function login() {
                 }
             }) // .catch(err => console.log(err)); 
         }
-		alert("bg");
 	}
 
 	return (
 		<div className="auth-wrapper">
 			<div className="auth-inner">
-				<form onSubmit={hello} > {/*<form onSubmit={this.handleSubmit}>  <form onSubmit={handleSubmit}>*/}
+				<form onSubmit={handleSubmit}>
 					<h3>Sign In</h3>
 					<div className="form-group">
 						<label>Email</label><br/>
