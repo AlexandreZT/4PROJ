@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  web:
+  server:
     image: backend
-    container_name: "BCES"
+    container_name: "BCES_backend"
     env_file: ./backend/.env    
     build:
       context: ./backend/
@@ -13,3 +13,19 @@ services:
 
     volumes:
       - ./backend/:/usr/src/app
+
+  client:
+    image: frontend
+    container_name: "BCES_frontend"
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    
+    depends_on:
+      - server
+
+    ports:
+      - "3000:3000"
+    
+    volumes:
+      - ./frontend/:/usr/src/app
