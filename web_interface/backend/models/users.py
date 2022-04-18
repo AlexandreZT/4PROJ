@@ -89,89 +89,42 @@ class Student(User):
             }
         }
                 
+class Staff(User):
+    def __init__(self,
+        firstname, 
+        lastname,
+        email,
+        campus=None,
+        roles=None
+    ):
+        super().__init__(firstname, lastname, email, user_type='Staff')
+        self.details = {
+            "campus": campus,
+            "roles": roles
+        }
+    
+    def working_location(self):
+        return self.details["campus"]
 
-student = Student(
-    firstname="Alexandre",
-    lastname="zitouni tinlot",
-    email="alexandre.zitounitinlot@supinfo.com",
-    # optionnal :
 
-    # details
-    date_of_birth="02/10/1979",
-    year_of_birth="1979",
-    street_address="40 Nova Crossing",
-    gender="male",
-    region="str",
-    level="M.ENG 1",
-    speciality="Intelligence Artificielle",
-    contratPro="true",
-    previous_level="Bac",
-    nbre_absence=4,
-    age_of_entry=22,
+class Teacher(User):
+    def __init__(self,
+        firstname, 
+        lastname,
+        email,
+        campus=None,
+        modules=None,
+        is_available=None,
 
-    # alternant
-    is_hired=True,
-    lenght_month_hired=3,
-    company_hired="Wavestone",
-    entreprise_alternance="Adobe",
-    entreprise_alternance_address="3 Holy Cross Avenue",
-    poste_occupe="Software Engineer",
-    secteur_entreprise="Software",
-    date_debut_alternance="2021-11-11 13:14:55 UTC",
+    ):
+        super().__init__(firstname, lastname, email, user_type='Teacher')
+        self.details = {
+            "campus": campus,
+            "modules": modules,
+            "is_available": is_available
+        }
+    
+    def teaching_location(self):
+        return self.details["campus"]
 
-    # compta
-    entry_level="B.ENG 1",
-    year_of_entry=2001,
-    year_of_exit=2003,
-    study_lenght=2,
-    level_of_exit="B.ENG 2",
-    still_student=False,	
-    compta_payment_type="Comptant/OPCA/Echelonnement",	
-    compta_paid=True,
-    compta_payment_due=0,	
-    compta_relance=False
-
-)
-
-# student.get_firstname()
-# student.get_user_type()
-# student.change_firstname("Guillaume")
-# print(student.__dict__)
-
-# print(student.details)
-
-# print(student.details["alternant"])
-
-# print(student.details["compta"])
-
-# dict
-# class MyClass(object):
-#     @classmethod
-#     def fromdict(cls, d):
-#         allowed = ('key1', 'key2')
-#         df = {k : v for k, v in d.items() if k in allowed}
-#         return cls(**df)
-
-#     def __init__(self, key1, key2):
-#         self.key1 = key1
-#         self.key2 = key2
-
-# dict = {'key1': 'value1', 'key2': 'value2', 'redundant_key': 'redundant_value'}
-
-# ob = MyClass.fromdict(dict)
-
-# print(ob.key1)
-# print(ob.key2)
-# print(ob.__dict__)
-
-# +++
-# class Bunch(object):    
-#     def __init__(self, test="PLS", **fields): 
-#         self.__dict__ = fields
-#         self.test = test
-        
-        
-# p = Bunch(test = "yes", x=2.3, y=4.5)
-# print (p)               
-
-# print (p.__dict__)
+# TODO : tutor ?

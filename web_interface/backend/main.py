@@ -76,34 +76,95 @@ def get_all_students_data():
 
 #------------------------------------------
 
-@app.route('/create-user', methods=['POST'])
-def create_user():
+# @app.route('/create-user', methods=['POST'])
+# def create_user():
+#     if request.method != 'POST': 
+#         return Response(status=404)
+
+#     firstname = request.json["firstname"]
+#     lastname = request.json["lastname"]
+#     email = request.json["email"]
+#     phone = request.json["phone"]
+#     password = request.json["password"]
+#     type = request.json["type"]
+
+#     users.create_user(db, auth, firstname, lastname, email, phone, password, type)    
+
+#     return Response(status=200)
+
+#------------------------------------------
+
+@app.route('/create-student', methods=['POST'])
+def create_student():
     if request.method != 'POST': 
         return Response(status=404)
-
+    
     firstname = request.json["firstname"]
     lastname = request.json["lastname"]
     email = request.json["email"]
-    phone = request.json["phone"]
-    password = request.json["password"]
-    type = request.json["type"]
+    campus = request.json["campus"]
+    date_of_birth = request.json["date_of_birth"]
+    year_of_birth = request.json["year_of_birth"]
+    street_address = request.json["street_address"]
+    gender = request.json["gender"]
+    region = request.json["region"]
+    level = request.json["level"]
+    speciality = request.json["speciality"]
+    contratPro = request.json["contratPro"]
+    previous_level = request.json["previous_level"]
+    nbre_absence = request.json["nbre_absence"]
+    age_of_entry = request.json["age_of_entry"]
+    is_hired = request.json["is_hired"]
+    lenght_month_hired = request.json["lenght_month_hired"]
+    company_hired = request.json["company_hired"]
+    entreprise_alternance = request.json["entreprise_alternance"]
+    entreprise_alternance_address = request.json["entreprise_alternance_address"]
+    poste_occupe = request.json["poste_occupe"]
+    secteur_entreprise = request.json["secteur_entreprise"]
+    date_debut_alternance = request.json["date_debut_alternance"]
+    entry_level = request.json["entry_level"]
+    year_of_entry = request.json["year_of_entry"]
+    year_of_exit = request.json["year_of_exit"]
+    study_lenght = request.json["study_lenght"]
+    level_of_exit = request.json["level_of_exit"]
+    still_student = request.json["still_student"]
+    compta_payment_type = request.json["compta_payment_type"]
+    compta_paid = request.json["compta_paid"]
+    compta_payment_due = request.json["compta_payment_due"]
+    compta_relance = request.json["compta_relance"]
 
-    users.create_user(db, auth, firstname, lastname, email, phone, password, type)    
-
+    users.create_student(db, auth, firstname, lastname, email, campus, date_of_birth, year_of_birth, street_address, gender,
+        region, level, speciality, contratPro, previous_level, nbre_absence, age_of_entry, is_hired, lenght_month_hired,
+        company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe, secteur_entreprise,
+        date_debut_alternance, entry_level, year_of_entry, year_of_exit, study_lenght, level_of_exit, still_student,	
+        compta_payment_type, compta_paid, compta_payment_due, compta_relance)
+    
     return Response(status=200)
 
-# test create student route (to implement when working)
-@app.route('/create-student', methods=['GET'])
-def create_student():
-    if request.method != 'GET': 
+@app.route('/create-staff', methods=['POST'])
+def create_staff():
+    if request.method != 'POST': 
         return Response(status=404)
-    users.create_student(
-        db,
-        auth,
-        firstname="Alexandre",
-        lastname="zitouni tinlot",
-        email="azt72629@gmail.com"
-    )
+    
+    firstname = request.json["firstname"]
+    lastname = request.json["lastname"]
+    email = request.json["email"]
+
+    users.create_staff(db, auth, firstname, lastname, email)
+    
+    return Response(status=200)
+
+@app.route('/create-teacher', methods=['POST'])
+def create_teacher():
+    if request.method != 'POST': 
+        return Response(status=404)
+    
+    firstname = request.json["firstname"]
+    lastname = request.json["lastname"]
+    email = request.json["email"]
+    
+    users.create_teacher(db, auth, firstname, lastname, email)
+    
     return Response(status=200)
 
 @app.route('/sign-in', methods=['POST'])
