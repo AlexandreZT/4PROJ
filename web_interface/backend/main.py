@@ -175,9 +175,8 @@ def sign_in():
     email = request.json["email"]
     password = request.json["password"]
     
-    users.sign_in(auth, email, password)
-
-    return Response(status=200)
+    code = users.sign_in(auth, email, password)
+    return Response(status=code)
 
 @app.route('/delete-user-with-id', methods=['DELETE'])
 def delete_user_with_id():

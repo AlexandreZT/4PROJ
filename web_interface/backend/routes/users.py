@@ -138,12 +138,15 @@ def sign_in(auth, email, password):
     """
     try:        
         auth_data = auth.sign_in_with_email_and_password(email, password)
-        print(auth_data)
+        print("all data:", auth_data)
+        print("refreshToken:", auth_data['refreshToken']) # refreshToken
+        print("idToken:", auth_data['idToken']) # idToken
     except Exception as e:
         print("mot de passe incorrect")
+        print(e)
         return 404
     else:
-        return auth_data
+        return 200  # auth_data
 
 def get_firstname_from_id(db, id):
     return db.child("users").child(id).get().val()['firstname']

@@ -19,7 +19,6 @@ RUN apt-get -y update
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-
 # START APP
 ENTRYPOINT [ "python", "main.py" ] 
-# ENTRYPOINT [ "gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+# ENTRYPOINT ["gunicorn", "main:app", "-c", "gunidev_config.py"]
