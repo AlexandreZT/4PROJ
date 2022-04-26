@@ -95,12 +95,14 @@ class Staff(User):
         lastname,
         email,
         campus=None,
-        roles=None
+        phone=None,
+        role_name=None
     ):
         super().__init__(firstname, lastname, email, user_type='staff')
         self.details = {
             "campus": campus,
-            "roles": roles
+            "phone": phone,
+            "role_name": role_name
         }
     
     def working_location(self):
@@ -127,4 +129,21 @@ class Teacher(User):
     def teaching_location(self):
         return self.details["campus"]
 
-# TODO : tutor ?
+class Tutor(User):
+    def __init__(self,
+        firstname, 
+        lastname,
+        email,
+        phone=None,
+        enterprise_name=None,
+        enterprise_location=None
+    ):
+        super().__init__(firstname, lastname, email, user_type='tutor')
+        self.details = {
+            "phone": phone,
+            "enterprise_name": enterprise_name,
+            "enterprise_location": enterprise_location
+        }
+    
+    def tutor_phone_number(self):
+        return self.details["phone"]

@@ -1,4 +1,4 @@
-from models.users import User, Student, Staff, Teacher
+from models.users import User, Student, Staff, Teacher, Tutor
 
 
 def create_user(db, auth, firstname, lastname, email):
@@ -85,7 +85,7 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
         # les champs du model à None ne seront pas enregistré en base
     )
 
-def create_staff(db, auth, firstname, lastname, email):
+def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name):
     """
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
@@ -102,13 +102,16 @@ def create_staff(db, auth, firstname, lastname, email):
             firstname=firstname.title(),
             lastname=lastname.upper(),
             email=email.lower(),
+            campus=campus.upper(), 
+            phone=phone,
+            role_name=role_name.lower(),
             # details optionals, if not filled other method will permit you to edit later
 
         ).__dict__
         # les champs du model à None ne seront pas enregistré en base
     )
 
-def create_teacher(db, auth, firstname, lastname, email):
+def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_available):
     """
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
@@ -124,11 +127,41 @@ def create_teacher(db, auth, firstname, lastname, email):
             firstname=firstname.title(),
             lastname=lastname.upper(),
             email=email.lower(),
+            campus=campus.upper(),
+            modules=modules.upper(),
+            is_available=is_available,
             # details optionals, if not filled other method will permit you to edit later
         ).__dict__
         # les champs du model à None ne seront pas enregistré en base
     )
 
+def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, enterprise_location):
+    """
+    Used for create manually a user from the web interface, email is unique
+    TODO : return email already used if it is.
+    """
+    
+    # set my own id (from firestore auth):
+    auth_data = auth.create_user_with_email_and_password(email, password="password")
+    print("auth_data: ", auth_data)
+    
+    
+    db.child("users").child(auth_data["localId"]).set(
+        Tutor(
+            # mandatory used for creation, if you got more data you can add more details
+            firstname=firstname.title(),
+            lastname=lastname.upper(),
+            email=email.lower(),
+            phone=phone,
+            enterprise_name=enterprise_name.title(),
+            enterprise_location=enterprise_location.upper(),
+            # details optionals, if not filled other method will permit you to edit later
+
+        ).__dict__
+        # les champs du model à None ne seront pas enregistré en base
+    )
+    
+    
 def sign_in(auth, email, password):
     """
     Seach in db email == email and password == password

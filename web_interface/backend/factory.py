@@ -1,4 +1,4 @@
-from models.users import Student, Teacher, Staff
+from models.users import Student, Teacher, Staff, Tutor
 from routes import users
 
 
@@ -95,6 +95,18 @@ print(working_location)
 """
 traces
 """
+
+tutor = Tutor(
+    firstname="AAA",
+    lastname="Staff",
+    email="aaa.bobo@supinfo.com",
+    phone="0102030405",
+    enterprise_name='google'
+    enterprise_location='Paris'
+)
+
+phone_number = tutor.tutor_phone_number()
+print(phone_number)
 # dict
 # class MyClass(object):
 #     @classmethod

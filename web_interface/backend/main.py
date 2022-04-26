@@ -133,8 +133,11 @@ def create_staff():
     firstname = request.json["firstname"]
     lastname = request.json["lastname"]
     email = request.json["email"]
+    campus = request.json["campus"]
+    phone = request.json ["phone"]
+    role_name = request.json["role_name"]
 
-    users.create_staff(db, auth, firstname, lastname, email)
+    users.create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
     
     return Response(status=200)
 
@@ -146,8 +149,27 @@ def create_teacher():
     firstname = request.json["firstname"]
     lastname = request.json["lastname"]
     email = request.json["email"]
+    campus = request.json["campus"]
+    modules = request.json["modules"]
+    is_available = request.json["is_available"]
     
-    users.create_teacher(db, auth, firstname, lastname, email)
+    users.create_teacher(db, auth, firstname, lastname, email, campus, modules, is_available)
+    
+    return Response(status=200)
+
+@app.route('/create-tutor', methods=['POST'])
+def create_tutor():
+    if request.method != 'POST': 
+        return Response(status=404)
+    
+    firstname = request.json["firstname"]
+    lastname = request.json["lastname"]
+    email = request.json["email"]
+    phone = request.json["phone"]
+    enterprise_name = request.json["enterprise_name"]
+    enterprise_location = request.json["enterprise_location"]
+    
+    users.create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, enterprise_location)
     
     return Response(status=200)
 
