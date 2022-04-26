@@ -1,36 +1,6 @@
 from models.users import User, Student, Staff, Teacher, Tutor
 
 
-def create_user(db, auth, firstname, lastname, email):
-    """
-    Used for create manually a user from the web interface, email is unique
-    TODO : return email already used if it is.
-    """
-    
-    # set my own id (from firestore auth):
-    auth_data = auth.create_user_with_email_and_password(email, password="password")
-    print("auth_data: ", auth_data)
-    
-
-    db.child("users").child(auth_data["localId"]).set(
-        User(
-            # mandatory used for creation, if you got more data you can add more details
-            firstname=firstname.title(),
-            lastname=lastname.upper(),
-            email=email.lower()
-        )
-    )
-
-    # db.child("users").child(auth_data["localId"]).set({
-    #     "firstname" : firstname.title(),
-    #     "lastname" : lastname.upper(),
-    #     "email" : email.lower(),
-    #     "phone" : phone,
-    #     "type" : type,
-    #     "uid" : auth_data["localId"] # temporarily
-    # })
-
-# TODO AND IN PROGRESS
 def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, year_of_birth, street_address, gender,
         region, level, speciality, contratPro, previous_level, nbre_absence, age_of_entry, is_hired, lenght_month_hired,
         company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe, secteur_entreprise,
@@ -295,7 +265,6 @@ def update_staff_data_by_id(db, id, firstname, lastname, email):
     except:
         return 400
 
-
 def get_all_students_data(db):
     users = db.child("users").get()
     data={}
@@ -311,7 +280,7 @@ def get_all_teachers_data(db):
     data={}
 
     for user in users.each():
-        if user.val()['user_type'] == "teachers":
+        if user.val()['user_type'] == "teacher":
             data.update({user.key() : user.val()})
 
     return data
@@ -319,9 +288,9 @@ def get_all_teachers_data(db):
 def get_all_staffs_data(db):
     users = db.child("users").get()
     data={}
-
+    print("route/get_all_staffs_data")
     for user in users.each():
-        if user.val()['user_type'] == "staffs":
+        if user.val()['user_type'] == "staff":
             data.update({user.key() : user.val()})
 
     return data
@@ -331,7 +300,7 @@ def get_all_tutors_data(db):
     data={}
 
     for user in users.each():
-        if user.val()['user_type'] == "tutors":
+        if user.val()['user_type'] == "tutor":
             data.update({user.key() : user.val()})
 
     return data

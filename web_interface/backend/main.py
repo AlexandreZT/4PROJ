@@ -261,6 +261,17 @@ def sign_in():
     code = users.sign_in(auth, email, password)
     return Response(status=code)
 
+@app.route('/forgotten-password', methods=['POST'])
+def forgotten_password():
+    if request.method != 'POST': 
+        return Response(status=404)
+    try:
+        resp = auth.send_password_reset_email(request.json["email"])
+    except:
+        return Response(response="Le mail n'existe pas", status=403)
+
+    return Response(response="Un mail a été envoyé pour reset votre mot de passe.", status=200)
+    
 @app.route('/data', methods=['GET'])
 def get_all_data():
     """
