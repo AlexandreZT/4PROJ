@@ -181,6 +181,88 @@ def update_student_data_by_id(db, id, firstname, lastname, email):
     except:
         return 400
 
+def update_teacher_data_by_id(db, id, firstname, lastname, email):
+    """
+    from client id has to be sent in the post request automatically
+    """
+    try:
+        data = db.child("users").child(id).get().val()
+
+        if firstname == "":
+            firstname = data['firstname']
+
+        if lastname == "":
+            lastname = data['lastname']
+
+        if email == "":
+            email = data['email']
+        
+        db.child("users").child(id).update(
+            {
+                "firstname" : firstname.title(),
+                "lastname" : lastname.upper(),
+                "email" : email.lower()
+            }
+        )
+
+    except:
+        return 400
+
+def update_tutor_data_by_id(db, id, firstname, lastname, email):
+    """
+    from client id has to be sent in the post request automatically
+    """
+    try:
+        data = db.child("users").child(id).get().val()
+
+        if firstname == "":
+            firstname = data['firstname']
+
+        if lastname == "":
+            lastname = data['lastname']
+
+        if email == "":
+            email = data['email']
+        
+        db.child("users").child(id).update(
+            {
+                "firstname" : firstname.title(),
+                "lastname" : lastname.upper(),
+                "email" : email.lower()
+            }
+        )
+
+    except:
+        return 400
+
+def update_staff_data_by_id(db, id, firstname, lastname, email):
+    """
+    from client id has to be sent in the post request automatically
+    """
+    try:
+        data = db.child("users").child(id).get().val()
+
+        if firstname == "":
+            firstname = data['firstname']
+
+        if lastname == "":
+            lastname = data['lastname']
+
+        if email == "":
+            email = data['email']
+        
+        db.child("users").child(id).update(
+            {
+                "firstname" : firstname.title(),
+                "lastname" : lastname.upper(),
+                "email" : email.lower()
+            }
+        )
+
+    except:
+        return 400
+
+
 def get_all_students_data(db):
     users = db.child("users").get()
     data={}

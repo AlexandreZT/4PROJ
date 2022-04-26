@@ -1,4 +1,4 @@
-import pyrebase # pip install pyrebase4
+import pyrebase
 import os
 from dotenv import load_dotenv
 from routes import users
@@ -32,7 +32,7 @@ auth=firebase.auth()
 
 storage=firebase.storage()
 
-# --------------- GET DATA
+# -------------- GET DATA
 
 @app.route('/', methods=['GET'])
 def home():
@@ -76,25 +76,7 @@ def get_all_students_data():
         return Response(status=404)
     return jsonify(users.get_all_students_data(db))    
 
-#------------------------------------------
-
-# @app.route('/create-user', methods=['POST'])
-# def create_user():
-#     if request.method != 'POST': 
-#         return Response(status=404)
-
-#     firstname = request.json["firstname"]
-#     lastname = request.json["lastname"]
-#     email = request.json["email"]
-#     phone = request.json["phone"]
-#     password = request.json["password"]
-#     type = request.json["type"]
-
-#     users.create_user(db, auth, firstname, lastname, email, phone, password, type)    
-
-#     return Response(status=200)
-
-#------------------------------------------ POST DATA
+# -------------- CREATE USERS
 
 @app.route('/create-student', methods=['POST'])
 def create_student():
@@ -169,18 +151,7 @@ def create_teacher():
     
     return Response(status=200)
 
-@app.route('/sign-in', methods=['POST'])
-def sign_in():
-    if request.method != 'POST': 
-        return Response(status=404)
-
-    email = request.json["email"]
-    password = request.json["password"]
-    
-    code = users.sign_in(auth, email, password)
-    return Response(status=code)
-
-# -------------- DELETE
+# -------------- DELETE DATA
 
 @app.route('/delete-user-with-id', methods=['DELETE'])
 def delete_user_with_id():
@@ -193,7 +164,7 @@ def delete_user_with_id():
 
     return Response(status=200)
 
-# ----------------- UPDATE
+# -------------- UPDATE DATA
 
 @app.route('/update-student-data-by-id', methods=['PUT'])
 def update_student_data_by_id():
@@ -210,9 +181,8 @@ def update_student_data_by_id():
         return Response(status=404)
     return Response(status=200)
 
-
-@app.route('/update-user-data-with-id', methods=['PUT'])
-def update_user_data_with_id():
+@app.route('/update-staff-data-by-id', methods=['PUT'])
+def update_staff_data_by_id():
     if request.method != 'PUT': 
         return Response(status=404)
 
@@ -220,13 +190,54 @@ def update_user_data_with_id():
     firstname = request.json["firstname"]
     lastname = request.json["lastname"]
     email = request.json["email"]
-    phone = request.json["phone"]
-    type = request.json["type"]
 
-    response = users.update_user_data_with_id(db, id, firstname, lastname, email, phone, type)
+    response = users.update_staff_data_by_id(db, id, firstname, lastname, email)
     if response == 404:
         return Response(status=404)
     return Response(status=200)
+
+@app.route('/update-tutor-data-by-id', methods=['PUT'])
+def update_tutor_data_by_id():
+    if request.method != 'PUT': 
+        return Response(status=404)
+
+    id = request.json["id"]
+    firstname = request.json["firstname"]
+    lastname = request.json["lastname"]
+    email = request.json["email"]
+
+    response = users.update_tutor_data_by_id(db, id, firstname, lastname, email)
+    if response == 404:
+        return Response(status=404)
+    return Response(status=200)
+
+@app.route('/update-teacher-data-by-id', methods=['PUT'])
+def update_teacher_data_by_id():
+    if request.method != 'PUT': 
+        return Response(status=404)
+
+    id = request.json["id"]
+    firstname = request.json["firstname"]
+    lastname = request.json["lastname"]
+    email = request.json["email"]
+
+    response = users.update_teacher_data_by_id(db, id, firstname, lastname, email)
+    if response == 404:
+        return Response(status=404)
+    return Response(status=200)
+
+# -------------- UTILITY
+
+@app.route('/sign-in', methods=['POST'])
+def sign_in():
+    if request.method != 'POST': 
+        return Response(status=404)
+
+    email = request.json["email"]
+    password = request.json["password"]
+    
+    code = users.sign_in(auth, email, password)
+    return Response(status=code)
 
 @app.route('/data', methods=['GET'])
 def get_all_data():
@@ -246,6 +257,7 @@ def get_all_data():
     storage.child('backup_'+date+'.json').put('backup.json')
     return jsonify(full_data) 
 
+    
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000) # ssl_context=("./cert.pem", "./key.pem")
 
