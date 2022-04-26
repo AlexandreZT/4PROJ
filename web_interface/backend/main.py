@@ -297,4 +297,3 @@ if __name__ == '__main__':
 # # NOTES # #
 # More firebase auth features :
 ## auth.send_email_verification(login['idToken'])
-## auth.send_password_reset_email(email)

@@ -12,7 +12,7 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     """
     
     # set my own id (from firestore auth):
-    auth_data = auth.create_user_with_email_and_password(email, password="password")
+    auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     print("auth_data: ", auth_data)
  
     db.child("users").child(auth_data["localId"]).set(
@@ -62,7 +62,7 @@ def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
     """
     
     # set my own id (from firestore auth):
-    auth_data = auth.create_user_with_email_and_password(email, password="password")
+    auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     print("auth_data: ", auth_data)
     
     
@@ -88,7 +88,7 @@ def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_ava
     """
     
     # set my own id (from firestore auth):
-    auth_data = auth.create_user_with_email_and_password(email, password="password")
+    auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     print("auth_data: ", auth_data)
 
     db.child("users").child(auth_data["localId"]).set(
@@ -112,7 +112,7 @@ def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, e
     """
     
     # set my own id (from firestore auth):
-    auth_data = auth.create_user_with_email_and_password(email, password="password")
+    auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     print("auth_data: ", auth_data)
     
     
