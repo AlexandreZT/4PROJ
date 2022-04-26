@@ -38,7 +38,7 @@ storage=firebase.storage()
 def home():
     if request.method != 'GET': 
         return Response(status=404)
-    return Response(status=200)
+    return Response(response="(╯‵□′)╯︵┻━┻", status=200)
 
 @app.route('/users', methods=['GET'])
 def get_all_users_data():

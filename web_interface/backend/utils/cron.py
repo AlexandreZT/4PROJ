@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import json
 from datetime import datetime   
 
-load_dotenv('../env')
+load_dotenv('../.env')
 
 firebaseConfig = {
     'apiKey': os.getenv("apiKey"), 

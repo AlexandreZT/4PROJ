@@ -11,6 +11,9 @@ web_interface/backend/backup.json
 
 # production
 web_interface/frontend/build
+web_interface/frontend/.firebase
+web_interface/frontend/.firebaserc
+web_interface/frontend/firebase.json
 
 # misc
 .DS_Store
