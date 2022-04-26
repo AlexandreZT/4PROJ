@@ -32,6 +32,8 @@ auth=firebase.auth()
 
 storage=firebase.storage()
 
+# --------------- GET DATA
+
 @app.route('/', methods=['GET'])
 def home():
     if request.method != 'GET': 
@@ -92,7 +94,7 @@ def get_all_students_data():
 
 #     return Response(status=200)
 
-#------------------------------------------
+#------------------------------------------ POST DATA
 
 @app.route('/create-student', methods=['POST'])
 def create_student():
@@ -178,6 +180,8 @@ def sign_in():
     code = users.sign_in(auth, email, password)
     return Response(status=code)
 
+# -------------- DELETE
+
 @app.route('/delete-user-with-id', methods=['DELETE'])
 def delete_user_with_id():
     if request.method != 'DELETE': 
@@ -188,6 +192,24 @@ def delete_user_with_id():
     users.delete_user_with_id(db, id, auth)
 
     return Response(status=200)
+
+# ----------------- UPDATE
+
+@app.route('/update-student-data-by-id', methods=['PUT'])
+def update_student_data_by_id():
+    if request.method != 'PUT': 
+        return Response(status=404)
+
+    id = request.json["id"]
+    firstname = request.json["firstname"]
+    lastname = request.json["lastname"]
+    email = request.json["email"]
+
+    response = users.update_student_data_by_id(db, id, firstname, lastname, email)
+    if response == 404:
+        return Response(status=404)
+    return Response(status=200)
+
 
 @app.route('/update-user-data-with-id', methods=['PUT'])
 def update_user_data_with_id():
@@ -225,7 +247,7 @@ def get_all_data():
     return jsonify(full_data) 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000) # ssl_context=("./cert.pem", "./key.pem")
 
 # # NOTES # #
 # More firebase auth features :

@@ -6,6 +6,7 @@ web_interface/frontend/.env
 web_interface/backend/.env
 web_interface/backend/cert.pem
 web_interface/backend/key.pem
+web_interface/backend/key_encrypted.pem
 web_interface/backend/backup.json
 
 # production

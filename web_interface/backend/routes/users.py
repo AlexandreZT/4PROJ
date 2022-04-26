@@ -1,5 +1,3 @@
-from pyasn1.type.univ import Null
-
 from models.users import User, Student, Staff, Teacher
 
 
@@ -138,13 +136,12 @@ def sign_in(auth, email, password):
     """
     try:        
         auth_data = auth.sign_in_with_email_and_password(email, password)
-        print("all data:", auth_data)
+        # print("all data:", auth_data)
         print("refreshToken:", auth_data['refreshToken']) # refreshToken
         print("idToken:", auth_data['idToken']) # idToken
     except Exception as e:
-        print("mot de passe incorrect")
         print(e)
-        return 404
+        return 403
     else:
         return 200  # auth_data
 
@@ -157,12 +154,13 @@ def get_all_users_data(db):
 def get_user_data_with_id(db, id):
     return db.child("users").child(id).get().val()
 
-def update_user_data_with_id(db, id, firstname, lastname, email, phone, type):    
-    types = ["students", "teachers", "staffs", "tutors"]
-
+def update_student_data_by_id(db, id, firstname, lastname, email):
+    """
+    from client id has to be sent in the post request automatically
+    """
     try:
         data = db.child("users").child(id).get().val()
-    
+
         if firstname == "":
             firstname = data['firstname']
 
@@ -171,28 +169,18 @@ def update_user_data_with_id(db, id, firstname, lastname, email, phone, type):
 
         if email == "":
             email = data['email']
+        
+        db.child("users").child(id).update(
+            {
+                "firstname" : firstname.title(),
+                "lastname" : lastname.upper(),
+                "email" : email.lower()
+            }
+        )
 
-        if phone == "":
-            phone = data['phone']
-
-        if type == "":
-            type = data['type']
-
-        if type in types:
-            db.child("users").child(id).update(
-                {
-                    "firstname" : firstname.title(),
-                    "lastname" : lastname.upper(),
-                    "email" : email.lower(),
-                    "phone" : phone,
-                    "type" : type
-                }
-            )
-        else:
-            print("ce role n'existe pas")
     except:
-        return 404
-    
+        return 400
+
 def get_all_students_data(db):
     users = db.child("users").get()
     data={}
@@ -242,3 +230,6 @@ def delete_user_with_id(db, id, auth):
 
 
 # + : .order_by_child(string), .start_at(int), .end_at(int)
+
+if __name__ == '__main__' :
+    pass
