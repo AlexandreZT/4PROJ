@@ -185,8 +185,8 @@ def get_all_students_data(db):
     users = db.child("users").get()
     data={}
 
-    for user in users.each():
-        if user.val()['type'] == "students":
+    for user in users.each(): 
+        if user.val()['user_type'] == "student":
             data.update({user.key() : user.val()})
 
     return data
@@ -196,7 +196,7 @@ def get_all_teachers_data(db):
     data={}
 
     for user in users.each():
-        if user.val()['type'] == "teachers":
+        if user.val()['user_type'] == "teachers":
             data.update({user.key() : user.val()})
 
     return data
@@ -206,7 +206,7 @@ def get_all_staffs_data(db):
     data={}
 
     for user in users.each():
-        if user.val()['type'] == "staffs":
+        if user.val()['user_type'] == "staffs":
             data.update({user.key() : user.val()})
 
     return data
@@ -216,11 +216,10 @@ def get_all_tutors_data(db):
     data={}
 
     for user in users.each():
-        if user.val()['type'] == "tutors":
+        if user.val()['user_type'] == "tutors":
             data.update({user.key() : user.val()})
 
     return data
-
 
 def delete_user_with_id(db, id, auth):
     # TODO delete user in Authentication service bcoz there is no duplication

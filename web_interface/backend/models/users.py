@@ -50,7 +50,7 @@ class Student(User):
         compta_payment_due=None,	
         compta_relance=None
     ):
-        super().__init__(firstname, lastname, email, user_type='Student')
+        super().__init__(firstname, lastname, email, user_type='student')
         # details
         self.details = {
             "campus": campus,
@@ -97,7 +97,7 @@ class Staff(User):
         campus=None,
         roles=None
     ):
-        super().__init__(firstname, lastname, email, user_type='Staff')
+        super().__init__(firstname, lastname, email, user_type='staff')
         self.details = {
             "campus": campus,
             "roles": roles
@@ -117,7 +117,7 @@ class Teacher(User):
         is_available=None,
 
     ):
-        super().__init__(firstname, lastname, email, user_type='Teacher')
+        super().__init__(firstname, lastname, email, user_type='teacher')
         self.details = {
             "campus": campus,
             "modules": modules,
