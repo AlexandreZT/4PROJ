@@ -275,19 +275,13 @@ def forgotten_password():
 @app.route('/data', methods=['GET'])
 def get_all_data():
     """
-    We store backup on firebase and keep the last on server / downloadable
+    Return the full db
     """
     if request.method != 'GET': 
         return Response(status=404)
 
-    date = datetime.now()
-
-    date = date.strftime("%d-%m-%Y_%Hh%M")
     full_data = db.get().val()
-    with open('backup.json', 'w') as json_file:
-        json.dump(full_data, json_file)
 
-    storage.child('backup_'+date+'.json').put('backup.json')
     return jsonify(full_data) 
 
     
