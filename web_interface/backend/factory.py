@@ -101,7 +101,7 @@ tutor = Tutor(
     lastname="Staff",
     email="aaa.bobo@supinfo.com",
     phone="0102030405",
-    enterprise_name='google'
+    enterprise_name='google',
     enterprise_location='Paris'
 )
 
