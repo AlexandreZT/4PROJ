@@ -29,19 +29,20 @@ auth=firebase.auth()
 
 storage=firebase.storage()
 
-df = pd.read_csv (r'../../Data/Liste_CampusStaff.csv')
-# for index,row in df.iterrows() :
-#     print (df[row])
-for index in df.itertuples():
-    # print(index[1].split(';')[1])
+df = pd.read_csv ("../../Data/Liste_CampusStaff.csv", sep=';')  # defualt value is ','
 
-    users.create_staff(db=db, auth=auth,
-        firstname=index[1].split(';')[1],
-        lastname=index[1].split(';')[2],
-        email=index[1].split(';')[3],
-        campus=index[1].split(';')[4],
-        role_name=index[1].split(';')[5],
-        phone='')
+for row in df.iterrows():
+    
+    users.create_staff(
+        db=db, 
+        auth=auth,
+        firstname=row[1]['first_name'],
+        lastname=row[1]['last_name'],
+        email=row[1]['email'],
+        campus=row[1]['Campus'],
+        role_name=row[1]['Roles'],
+        phone=''
+    )
 
     
 
