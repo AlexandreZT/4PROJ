@@ -29,22 +29,39 @@ auth=firebase.auth()
 
 storage=firebase.storage()
 
-df = pd.read_csv ("../../Data/Liste_CampusStaff.csv", sep=';')  # defualt value is ','
+# datasets to migrate
+campus_staff = pd.read_csv ("../../Data/Liste_CampusStaff.csv", sep=';')
+teachers = pd.read_csv ("../../Data/Liste_Intervenants.csv", sep=',')
+student_admin = pd.read_csv ("../../Data/Liste_Etudiant_Administratifs.csv", sep=';', encoding = "ISO-8859-1")
+student_alternance = pd.read_csv ("../../Data/Liste_Etudiant_Alternance.csv", sep=';', encoding = "ISO-8859-1")
+student_compta = pd.read_csv ("../../Data/Liste_Etudiant_Compta.csv", sep=';', encoding = "ISO-8859-1")
+student_pedago = pd.read_csv ("../../Data/Liste_Etudiant_Pédagogie_Notes.csv", sep=';', encoding = "ISO-8859-1")
 
-for row in df.iterrows():
-    
-    users.create_staff(
-        db=db, 
-        auth=auth,
-        firstname=row[1]['first_name'],
-        lastname=row[1]['last_name'],
-        email=row[1]['email'],
-        campus=row[1]['Campus'],
-        role_name=row[1]['Roles'],
-        phone=''
-    )
+def staffs_migration():
+    for row in campus_staff.iterrows():
+        users.create_staff(
+            db=db, 
+            auth=auth,
+            firstname=row[1]['first_name'],
+            lastname=row[1]['last_name'],
+            email=row[1]['email'],
+            campus=row[1]['Campus'],
+            role_name=row[1]['Roles'],
+            phone=''
+        )
 
-    
+def teachers_migration():
+    print(teachers)
+
+def students_migration():
+    print(student_admin)
+    print(student_alternance)
+    print(student_compta)
+    print(student_pedago)
 
 
-
+# ici tu choisi les fonctions que tu veux executer
+if __name__ == '__main__':
+    # staffs_migration()
+    teachers_migration()
+    # students_migration()
