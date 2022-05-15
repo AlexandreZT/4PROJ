@@ -36,22 +36,31 @@ student_admin = pd.read_csv ("../../Data/Liste_Etudiant_Administratifs.csv", sep
 student_alternance = pd.read_csv ("../../Data/Liste_Etudiant_Alternance.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(pd.np.nan, None)
 student_compta = pd.read_csv ("../../Data/Liste_Etudiant_Compta.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(pd.np.nan, None)
 student_pedago = pd.read_csv ("../../Data/Liste_Etudiant_Pédagogie_Notes.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(pd.np.nan, None)
-
+tutor = pd.read_csv ("../../Data/Liste_Tuteurs.csv", sep=';', encoding = "ISO-8859-1") .astype(object).replace(pd.np.nan, None)
 
 def staffs_migration():
     for row in campus_staff.iterrows():
         users.create_staff(
             db=db, 
             auth=auth,
-            firstname=row[1]['first_name'],
-            lastname=row[1]['last_name'],
+            first_name=row[1]['first_name'],
+            last_name=row[1]['last_name'],
             email=row[1]['email'],
-            campus=row[1]['Campus'],
-            role_name=row[1]['Roles'],
-            phone=''
+            Campus=row[1]['Campus'],
+            Roles=row[1]['Roles']
         )
 
 def teachers_migration():
+    for row in teachers.iterrows():
+        users.create_teachers(
+            db=db, 
+            auth=auth,
+            firs_tname=row[1]['first_name'],
+            last_name=row[1]['last_name'],
+            email=row[1]['email'],
+            modules=row[1]['modules'],
+            Section=row[1]['Section']
+        )
     print(teachers)
     
 
