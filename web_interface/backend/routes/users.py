@@ -10,6 +10,44 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
     """
+
+def create_student_admin(db, auth, first_name, last_name, date_of_birth, year_of_birth, street_address, email, gender, region, campus, age_of_entry, previous_level,
+        entry_level, year_of_entry, year_of_exit, study_lenght, level_of_exit, still_student, level, contratPro, is_hired, lenght_month_hired, nbre_absence, speciality,
+        company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe, secteur_activite_entreprise_alternance, date_debut_alternance):
+    """
+    Used for create manually a user from the web interface, email is unique
+    TODO : return email already used if it is.
+    """
+
+def create_student_alternance(db, auth, first_name, last_name, date_of_birth, year_of_birth, street_address, email, gender, region, campus, level,
+        contratPro, is_hired, lenght_month_hired, speciality, company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe,
+        secteur_activite_entreprise_alternance, date_debut_alternance):
+    """
+    Used for create manually a user from the web interface, email is unique
+    TODO : return email already used if it is.
+    """
+
+def create_student_compta(db, auth, first_name, last_name, date_of_birth, year_of_birth, street_address, email, gender, region, campus, entry_level, year_of_entry,
+        year_of_exit, study_lenght, level_of_exit, still_student, level, contratPro, speciality, compta_paymentType, compta_paid, compta_paymentDue, compta_relance):
+    """
+    Used for create manually a user from the web interface, email is unique
+    TODO : return email already used if it is.
+    """
+
+def create_student_pedago(db, auth, first_name, last_name, date_of_birth, year_of_birth, street_address, email, gender, region, campus, age_of_entry, previous_level,
+        entry_level, year_of_entry, year_of_exit, study_lenght, level_of_exit, still_student, level, contratPro, is_hired, lenght_month_hired, nbre_absence, speciality,
+        company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe, secteur_activite_entreprise_alternance, date_debut_alternance):
+    """
+    Used for create manually a user from the web interface, email is unique
+    TODO : return email already used if it is.
+    """
+
+def create_student_tutor(db, auth, first_name, last_name, tutor_fullname, gender, email, company_hired, entreprise_alternance, entreprise_alternance_address,
+        secteur_activite_entreprise_alternance, date_debut_alternance):
+    """
+    Used for create manually a user from the web interface, email is unique
+    TODO : return email already used if it is.
+    """
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
@@ -79,6 +117,7 @@ def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
             campus=campus.upper(), 
             phone=phone,
             role_name=role_name.lower(),
+            section=section.lower(),
             # details optionals, if not filled other method will permit you to edit later
 
         ).__dict__

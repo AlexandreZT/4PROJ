@@ -121,6 +121,7 @@ class Teacher(User):
         campus=None,
         modules=None,
         is_available=None,
+        section=None,
 
     ):
         super().__init__(firstname, lastname, email, user_type='teacher')
