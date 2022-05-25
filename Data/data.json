@@ -44,15 +44,165 @@
                     },                    
                     "pedago": {
 		                "Xmodules": {
-                            "4DVOP": {
-                                "module_name": "DevOps Engineer",
+                            "1WORK": {
+                                "module_name": "",
                                 "note" : 14,
                                 "comment":"Bon travail"
                             },
-                            "3MERN": {
-                                "module_name": "Full Stack Developer",
+                            "1WDEV": {
+                                "module_name": "",
                                 "note" : 17.5,
                                 "comment":"Très bon travail"
+                            },
+                            "1ITWO": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "1TEAM": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "1TEAM": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "1PYTH": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "1O365": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "2JAVA": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "2PHPD": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "2GRAP": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "2DTTL": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "2DVST": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "2AWSP": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "3ANDM": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "3CCNA": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "3ASPC": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "3LPIC": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "3AGIL": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "4AZUR": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "4BOSS": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "4GDPR": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "4DOCKR": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "4CHGM": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "4BINT": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "4SECU": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "5CCNA": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "5DATA": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "5DOOP": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "5ITIL": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "5RBIG": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "5BLOC": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
+                            },
+                            "5MDD": {
+                                "module_name": "",
+                                "note" : 14,
+                                "comment":"Bon travail"
                             }
                         }
 
