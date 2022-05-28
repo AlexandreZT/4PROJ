@@ -1,11 +1,13 @@
 from models.users import Student, Teacher, Staff, Tutor, MODULE_CODE_LIST
 from routes import users
 import pandas as pd
+import numpy as np
 import requests
 import pyrebase
 import os
 from dotenv import load_dotenv
 from datetime import datetime
+from faker import Faker
 
 
 load_dotenv('.env')
@@ -30,12 +32,12 @@ auth=firebase.auth()
 storage=firebase.storage()
 
 # datasets to migrate - convert NaN to None
-campus_staff = pd.read_csv ("../../Data/Liste_CampusStaff.csv", sep=';').astype(object).replace(pd.np.nan, None)
-teachers = pd.read_csv ("../../Data/Liste_Intervenants.csv", sep=',').astype(object).replace(pd.np.nan, None)
-student_admin = pd.read_csv ("../../Data/Liste_Etudiant_Administratifs.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(pd.np.nan, None)
-student_alternance = pd.read_csv ("../../Data/Liste_Etudiant_Alternance.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(pd.np.nan, None)
-student_compta = pd.read_csv ("../../Data/Liste_Etudiant_Compta.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(pd.np.nan, None)
-student_pedago = pd.read_csv ("../../Data/Liste_Etudiant_Pédagogie_Notes.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(pd.np.nan, None)
+campus_staff = pd.read_csv ("../../Data/Liste_CampusStaff.csv", sep=';').astype(object).replace(np.nan, None)
+teachers = pd.read_csv ("../../Data/Liste_Intervenants.csv", sep=',').astype(object).replace(np.nan, None)
+student_admin = pd.read_csv ("../../Data/Liste_Etudiant_Administratifs.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(np.nan, None)
+student_alternance = pd.read_csv ("../../Data/Liste_Etudiant_Alternance.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(np.nan, None)
+student_compta = pd.read_csv ("../../Data/Liste_Etudiant_Compta.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(np.nan, None)
+student_pedago = pd.read_csv ("../../Data/Liste_Etudiant_Pédagogie_Notes.csv", sep=';', encoding = "ISO-8859-1").astype(object).replace(np.nan, None)
 
 
 def staffs_migration():
@@ -128,9 +130,44 @@ def students_migration():
                 pedago=pedago_notes
             )
 
+def tutor_migration():
+    fake = Faker()
+    number_of_generated_tutors = 1
+    for _ in range(number_of_generated_tutors):
+        firstname= fake.first_name()
+        lastname = fake.last_name()
+        enterprise_location = fake.address()
+        phone = fake.phone_number()
+        email = fake.company_email()
+        enterprise_name = email.split('@')[1].split('.')[0]
+        gender = np.random.choice(["Male", "Female"], p=[0.5, 0.5])
+        job = fake.job()
+        date_of_birth = str(fake.date_of_birth())
+        student_apprentices=[]
+
+        users.create_tutor(
+            db=db,
+            auth=auth,
+            firstname=firstname,
+            lastname=lastname,
+            email=email,
+            phone=phone,
+            enterprise_name=enterprise_name,
+            enterprise_location=enterprise_location, 
+            gender=gender,
+            job=job,
+            date_of_birth=date_of_birth,
+            student_apprentices=student_apprentices
+        )
+
+        # print(fake.word())
+        # fake.random_int(0, 100)
+        # get email of student he got
+        
+
 # ici tu choisi les fonctions que tu veux executer
 if __name__ == '__main__':
-    students_migration()
+    # students_migration()
     # staffs_migration()
     # teachers_migration()
-    # students_migration()
+    tutor_migration()

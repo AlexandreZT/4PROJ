@@ -109,7 +109,7 @@ def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_ava
         # les champs du model à None ne seront pas enregistré en base
     )
 
-def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, enterprise_location):
+def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, enterprise_location, gender, job, date_of_birth, student_apprentices):
     """
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
@@ -129,6 +129,10 @@ def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, e
             phone=phone,
             enterprise_name=enterprise_name.title(),
             enterprise_location=enterprise_location.upper(),
+            gender=gender,
+            job=job,
+            date_of_birth=date_of_birth,
+            student_apprentices=student_apprentices
             # details optionals, if not filled other method will permit you to edit later
 
         ).__dict__
