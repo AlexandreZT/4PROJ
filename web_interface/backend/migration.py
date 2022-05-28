@@ -49,7 +49,7 @@ def staffs_migration():
                 auth=auth,
                 firstname=staff[1]['first_name'],
                 lastname=staff[1]['last_name'],
-                email=staff[1]['email'],
+                email=staff[1]['email'].replace(" ", ""),
                 campus=staff[1]['Campus'],
                 phone=None,
                 role_name=staff[1]['Roles']
@@ -62,10 +62,11 @@ def teachers_migration():
             users.create_teachers(
                 db=db, 
                 auth=auth,
-                firs_tname=row[1]['first_name'],
-                last_name=row[1]['last_name'],
-                email=row[1]['email'],
+                firstname=row[1]['first_name'],
+                lastname=row[1]['last_name'],
+                email=row[1]['email'].replace(" ", ""),
                 modules=row[1]['modules'],
+                is_available=None,
                 section=row[1]['Section']
             )
     
@@ -183,5 +184,5 @@ def tutor_migration():
 if __name__ == '__main__':
     # students_migration()
     # staffs_migration()
-    # teachers_migration()
+    teachers_migration()
     # tutor_migration()

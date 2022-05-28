@@ -58,6 +58,28 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     db.child("users").child(auth_data["localId"]).set(student)
     
 
+def create_teachers(db, auth, firstname, lastname, email, modules, is_available, section):
+    """
+    Used for create manually a user from the web interface, email is unique
+    TODO : return email already used if it is.
+    """
+    
+    
+    # set my own id (from firestore auth):
+    auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
+    # print("auth_data: ", auth_data)
+
+    teacher = Teacher(
+        firstname=firstname,
+        lastname=lastname,
+        email=email,
+        modules=modules,
+        is_available=is_available,
+        section=section,
+    ).__dict__
+
+    db.child("users").child(auth_data["localId"]).set(teacher)
+
 def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name):
     """
     Used for create manually a user from the web interface, email is unique
