@@ -24,8 +24,7 @@ export default function Login() {
             }).then(response => {
                 console.log(response)
                 if (response.status === 200) {
-                    this.props.history.push("/dashboard");
-					// window.location.replace("https://www.google.com");
+                    this.props.history.push("/");
                     return
                 }
             }) // .catch(err => console.log(err)); 
