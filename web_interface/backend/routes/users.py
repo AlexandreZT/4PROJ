@@ -15,6 +15,7 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     # print("auth_data: ", auth_data)
     
+    # les champs du model à None ne seront pas enregistré en base
     student = Student(
         # mandatory used for creation, if you got more data you can add more details
         firstname=firstname.title(),
@@ -52,12 +53,32 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
         compta_relance=compta_relance,
         pedago=pedago
     ).__dict__
-    # les champs du model à None ne seront pas enregistré en base
-        
-    # print(student)
     
+            
     db.child("users").child(auth_data["localId"]).set(student)
     
+
+def create_teachers(db, auth, firstname, lastname, email, modules, is_available, section):
+    """
+    Used for create manually a user from the web interface, email is unique
+    TODO : return email already used if it is.
+    """
+    
+    
+    # set my own id (from firestore auth):
+    auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
+    # print("auth_data: ", auth_data)
+
+    teacher = Teacher(
+        firstname=firstname,
+        lastname=lastname,
+        email=email,
+        modules=modules,
+        is_available=is_available,
+        section=section,
+    ).__dict__
+
+    db.child("users").child(auth_data["localId"]).set(teacher)
 
 def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name):
     """
@@ -67,23 +88,21 @@ def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
-    print("auth_data: ", auth_data)
+    # print("auth_data: ", auth_data)
     
-    
-    db.child("users").child(auth_data["localId"]).set(
-        Staff(
+    staff = Staff(
             # mandatory used for creation, if you got more data you can add more details
             firstname=firstname.title(),
             lastname=lastname.upper(),
             email=email.lower(),
             campus=campus.upper(), 
             phone=phone,
-            role_name=role_name.lower(),
+            role_name=role_name.title()
             # details optionals, if not filled other method will permit you to edit later
-
         ).__dict__
         # les champs du model à None ne seront pas enregistré en base
-    )
+
+    db.child("users").child(auth_data["localId"]).set(staff)
 
 def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_available):
     """
@@ -93,10 +112,10 @@ def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_ava
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
-    print("auth_data: ", auth_data)
+    # print("auth_data: ", auth_data)
 
-    db.child("users").child(auth_data["localId"]).set(
-        Teacher(
+    # les champs du model à None ne seront pas enregistré en base
+    teacher = Teacher(
             # mandatory used for creation, if you got more data you can add more details
             firstname=firstname.title(),
             lastname=lastname.upper(),
@@ -106,8 +125,8 @@ def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_ava
             is_available=is_available,
             # details optionals, if not filled other method will permit you to edit later
         ).__dict__
-        # les champs du model à None ne seront pas enregistré en base
-    )
+
+    db.child("users").child(auth_data["localId"]).set(teacher)
 
 def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, enterprise_location, gender, job, date_of_birth, student_apprentices):
     """
@@ -117,11 +136,10 @@ def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, e
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
-    print("auth_data: ", auth_data)
+    # print("auth_data: ", auth_data)
     
-    
-    db.child("users").child(auth_data["localId"]).set(
-        Tutor(
+    # les champs du model à None ne seront pas enregistré en base
+    tutor = Tutor(
             # mandatory used for creation, if you got more data you can add more details
             firstname=firstname.title(),
             lastname=lastname.upper(),
@@ -136,8 +154,9 @@ def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, e
             # details optionals, if not filled other method will permit you to edit later
 
         ).__dict__
-        # les champs du model à None ne seront pas enregistré en base
-    )
+        
+
+    db.child("users").child(auth_data["localId"]).set(tutor)
     
     
 def sign_in(auth, email, password):

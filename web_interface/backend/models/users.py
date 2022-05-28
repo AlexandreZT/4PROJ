@@ -118,16 +118,16 @@ class Teacher(User):
         firstname, 
         lastname,
         email,
-        campus=None,
         modules=None,
         is_available=None,
+        section=None,
 
     ):
         super().__init__(firstname, lastname, email, user_type='teacher')
         self.details = {
-            "campus": campus,
             "modules": modules,
-            "is_available": is_available
+            "is_available": is_available,
+            "section": section
         }
     
     def teaching_location(self):

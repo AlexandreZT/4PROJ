@@ -43,19 +43,11 @@
                         "compta_relance": false
                     },                    
                     "pedago": {
-		                "Xmodules": {
-                            "4DVOP": {
-                                "module_name": "DevOps Engineer",
-                                "note" : 14,
-                                "comment":"Bon travail"
-                            },
-                            "3MERN": {
-                                "module_name": "Full Stack Developer",
-                                "note" : 17.5,
-                                "comment":"Très bon travail"
-                            }
-                        }
-
+                        "1PYTH": 17,
+                        "2DTTL": 15,
+                        "3AGIL": 18,
+                        "4SECU": 12,
+                        "5CCNA": 14   
                     }
                 }
             }

@@ -41,27 +41,39 @@ student_pedago = pd.read_csv ("../../Data/Liste_Etudiant_Pédagogie_Notes.csv", 
 
 
 def staffs_migration():
-    for row in campus_staff.iterrows():
-        users.create_staff(
-            db=db, 
-            auth=auth,
-            firstname=row[1]['first_name'],
-            lastname=row[1]['last_name'],
-            email=row[1]['email'],
-            campus=row[1]['Campus'],
-            role_name=row[1]['Roles'],
-            phone=''
-        )
+    for staff in campus_staff.iterrows():
+        email=staff[1]['email']
+        if users.user_email_already_registred(db, email) == False:
+            users.create_staff(
+                db=db, 
+                auth=auth,
+                firstname=staff[1]['first_name'],
+                lastname=staff[1]['last_name'],
+                email=staff[1]['email'].replace(" ", ""),
+                campus=staff[1]['Campus'],
+                phone=None,
+                role_name=staff[1]['Roles']
+            )
 
 def teachers_migration():
-    print(teachers)
+    for row in teachers.iterrows():
+        email=row[1]['email']
+        if users.user_email_already_registred(db, email) == False:
+            users.create_teachers(
+                db=db, 
+                auth=auth,
+                firstname=row[1]['first_name'],
+                lastname=row[1]['last_name'],
+                email=row[1]['email'].replace(" ", ""),
+                modules=row[1]['modules'],
+                is_available=None,
+                section=row[1]['Section']
+            )
     
 
 def students_migration():
-
     for admin in student_admin.iterrows():
         email=admin[1]['email']
-        print(email)
         if users.user_email_already_registred(db, email) == False: # je peux ajouter l'user car il existe pas
             alternance = None
             for user in student_alternance.iterrows():
@@ -133,32 +145,35 @@ def students_migration():
 def tutor_migration():
     fake = Faker()
     number_of_generated_tutors = 1
-    for _ in range(number_of_generated_tutors):
-        firstname= fake.first_name()
-        lastname = fake.last_name()
-        enterprise_location = fake.address()
-        phone = fake.phone_number()
+    for _ in range(number_of_generated_tutors): 
         email = fake.company_email()
-        enterprise_name = email.split('@')[1].split('.')[0]
-        gender = np.random.choice(["Male", "Female"], p=[0.5, 0.5])
-        job = fake.job()
-        date_of_birth = str(fake.date_of_birth())
-        student_apprentices=[]
-
-        users.create_tutor(
-            db=db,
-            auth=auth,
-            firstname=firstname,
-            lastname=lastname,
-            email=email,
-            phone=phone,
-            enterprise_name=enterprise_name,
-            enterprise_location=enterprise_location, 
-            gender=gender,
-            job=job,
-            date_of_birth=date_of_birth,
-            student_apprentices=student_apprentices
-        )
+        if users.user_email_already_registred(db, email) == False:
+            firstname= fake.first_name()
+            lastname = fake.last_name()
+            enterprise_location = fake.address()
+            phone = fake.phone_number()
+            email = fake.company_email()
+            enterprise_name = email.split('@')[1].split('.')[0]
+            gender = np.random.choice(["Male", "Female"], p=[0.5, 0.5])
+            job = fake.job()
+            date_of_birth = str(fake.date_of_birth())
+            student_apprentices=[]
+            users.create_tutor(
+                db=db,
+                auth=auth,
+                firstname=firstname,
+                lastname=lastname,
+                email=email,
+                phone=phone,
+                enterprise_name=enterprise_name,
+                enterprise_location=enterprise_location, 
+                gender=gender,
+                job=job,
+                date_of_birth=date_of_birth,
+                student_apprentices=student_apprentices
+            )
+        else:
+            number_of_generated_tutors+1 # on veut créer le nombre de tuteur demandé ainsi lorsqu'un email avait déjà été utilisé on recommence.
 
         # print(fake.word())
         # fake.random_int(0, 100)
@@ -169,5 +184,5 @@ def tutor_migration():
 if __name__ == '__main__':
     # students_migration()
     # staffs_migration()
-    # teachers_migration()
-    tutor_migration()
+    teachers_migration()
+    # tutor_migration()
