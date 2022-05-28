@@ -141,13 +141,21 @@ class Tutor(User):
         email,
         phone=None,
         enterprise_name=None,
-        enterprise_location=None
+        enterprise_location=None,
+        gender=None,
+        job=None,
+        date_of_birth=None,
+        student_apprentices=[]
     ):
         super().__init__(firstname, lastname, email, user_type='tutor')
         self.details = {
             "phone": phone,
             "enterprise_name": enterprise_name,
-            "enterprise_location": enterprise_location
+            "enterprise_location": enterprise_location,
+            "gender" : gender,
+            "job" : job,
+            "date_of_birth" : date_of_birth,
+            "student_apprentices" : student_apprentices
         }
     
     def tutor_phone_number(self):
