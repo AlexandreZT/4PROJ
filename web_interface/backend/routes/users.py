@@ -10,49 +10,12 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
     """
-
-def create_student_admin(db, auth, first_name, last_name, date_of_birth, year_of_birth, street_address, email, gender, region, campus, age_of_entry, previous_level,
-        entry_level, year_of_entry, year_of_exit, study_lenght, level_of_exit, still_student, level, contratPro, is_hired, lenght_month_hired, nbre_absence, speciality,
-        company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe, secteur_activite_entreprise_alternance, date_debut_alternance):
-    """
-    Used for create manually a user from the web interface, email is unique
-    TODO : return email already used if it is.
-    """
-
-def create_student_alternance(db, auth, first_name, last_name, date_of_birth, year_of_birth, street_address, email, gender, region, campus, level,
-        contratPro, is_hired, lenght_month_hired, speciality, company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe,
-        secteur_activite_entreprise_alternance, date_debut_alternance):
-    """
-    Used for create manually a user from the web interface, email is unique
-    TODO : return email already used if it is.
-    """
-
-def create_student_compta(db, auth, first_name, last_name, date_of_birth, year_of_birth, street_address, email, gender, region, campus, entry_level, year_of_entry,
-        year_of_exit, study_lenght, level_of_exit, still_student, level, contratPro, speciality, compta_paymentType, compta_paid, compta_paymentDue, compta_relance):
-    """
-    Used for create manually a user from the web interface, email is unique
-    TODO : return email already used if it is.
-    """
-
-def create_student_pedago(db, auth, first_name, last_name, date_of_birth, year_of_birth, street_address, email, gender, region, campus, age_of_entry, previous_level,
-        entry_level, year_of_entry, year_of_exit, study_lenght, level_of_exit, still_student, level, contratPro, is_hired, lenght_month_hired, nbre_absence, speciality,
-        company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe, secteur_activite_entreprise_alternance, date_debut_alternance):
-    """
-    Used for create manually a user from the web interface, email is unique
-    TODO : return email already used if it is.
-    """
-
-def create_student_tutor(db, auth, first_name, last_name, tutor_fullname, gender, email, company_hired, entreprise_alternance, entreprise_alternance_address,
-        secteur_activite_entreprise_alternance, date_debut_alternance):
-    """
-    Used for create manually a user from the web interface, email is unique
-    TODO : return email already used if it is.
-    """
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     # print("auth_data: ", auth_data)
     
+    # les champs du model à None ne seront pas enregistré en base
     student = Student(
         # mandatory used for creation, if you got more data you can add more details
         firstname=firstname.title(),
@@ -90,10 +53,8 @@ def create_student_tutor(db, auth, first_name, last_name, tutor_fullname, gender
         compta_relance=compta_relance,
         pedago=pedago
     ).__dict__
-    # les champs du model à None ne seront pas enregistré en base
-        
-    # print(student)
     
+            
     db.child("users").child(auth_data["localId"]).set(student)
     
 
@@ -105,24 +66,21 @@ def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
-    print("auth_data: ", auth_data)
+    # print("auth_data: ", auth_data)
     
-    
-    db.child("users").child(auth_data["localId"]).set(
-        Staff(
+    staff = Staff(
             # mandatory used for creation, if you got more data you can add more details
             firstname=firstname.title(),
             lastname=lastname.upper(),
             email=email.lower(),
             campus=campus.upper(), 
             phone=phone,
-            role_name=role_name.lower(),
-            section=section.lower(),
+            role_name=role_name.title()
             # details optionals, if not filled other method will permit you to edit later
-
         ).__dict__
         # les champs du model à None ne seront pas enregistré en base
-    )
+
+    db.child("users").child(auth_data["localId"]).set(staff)
 
 def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_available):
     """
@@ -132,10 +90,10 @@ def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_ava
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
-    print("auth_data: ", auth_data)
+    # print("auth_data: ", auth_data)
 
-    db.child("users").child(auth_data["localId"]).set(
-        Teacher(
+    # les champs du model à None ne seront pas enregistré en base
+    teacher = Teacher(
             # mandatory used for creation, if you got more data you can add more details
             firstname=firstname.title(),
             lastname=lastname.upper(),
@@ -145,8 +103,8 @@ def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_ava
             is_available=is_available,
             # details optionals, if not filled other method will permit you to edit later
         ).__dict__
-        # les champs du model à None ne seront pas enregistré en base
-    )
+
+    db.child("users").child(auth_data["localId"]).set(teacher)
 
 def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, enterprise_location, gender, job, date_of_birth, student_apprentices):
     """
@@ -156,11 +114,10 @@ def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, e
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
-    print("auth_data: ", auth_data)
+    # print("auth_data: ", auth_data)
     
-    
-    db.child("users").child(auth_data["localId"]).set(
-        Tutor(
+    # les champs du model à None ne seront pas enregistré en base
+    tutor = Tutor(
             # mandatory used for creation, if you got more data you can add more details
             firstname=firstname.title(),
             lastname=lastname.upper(),
@@ -175,8 +132,9 @@ def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, e
             # details optionals, if not filled other method will permit you to edit later
 
         ).__dict__
-        # les champs du model à None ne seront pas enregistré en base
-    )
+        
+
+    db.child("users").child(auth_data["localId"]).set(tutor)
     
     
 def sign_in(auth, email, password):
