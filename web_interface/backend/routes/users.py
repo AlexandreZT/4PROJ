@@ -344,14 +344,18 @@ def get_all_tutors_data(db):
 
     return data
 
-def delete_user_with_id(db, id, auth):
-    # TODO delete user in Authentication service bcoz there is no duplication
-    # user = auth.sign_in_with_email_and_password(email, password)
-    # auth.delete_user_account(user['idToken']) # must be signed in 
+def delete_only_user_data_with_id(db, id):    
     db.child("users").child(id).remove()
 
+def delete_user_with_credentials(db, auth, email, password):
+    try:
+        user = auth.sign_in_with_email_and_password(email, password)
+        auth.delete_user_account(user['idToken'])
+        db.child("users").child(user['localId']).remove()
+    except:
+        print("invalid credentials")
 
-# + : .order_by_child(string), .start_at(int), .end_at(int)
 
+# pagination : .order_by_child(string), .start_at(int), .end_at(int)
 if __name__ == '__main__' :
     pass

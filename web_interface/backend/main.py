@@ -175,14 +175,26 @@ def create_tutor():
 
 # -------------- DELETE DATA
 
-@app.route('/delete-user-with-id', methods=['DELETE'])
-def delete_user_with_id():
+@app.route('/delete-only-user-data-with-id', methods=['DELETE'])
+def delete_only_user_data_with_id():
     if request.method != 'DELETE': 
         return Response(status=404)
 
     id = request.json["id"]
 
-    users.delete_user_with_id(db, id, auth)
+    users.delete_only_user_data_with_id(db, id)
+
+    return Response(status=200)
+
+@app.route('/delete-user-with-credentials', methods=['DELETE'])
+def delete_user_with_id():
+    if request.method != 'DELETE': 
+        return Response(status=404)
+
+    email = request.json["email"]
+    password = request.json["password"]
+
+    users.delete_user_with_credentials(db, auth, email, password)
 
     return Response(status=200)
 
