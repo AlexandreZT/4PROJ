@@ -5,7 +5,7 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
         region, level, speciality, contratPro, previous_level, nbre_absence, age_of_entry, is_hired, lenght_month_hired,
         company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe, secteur_entreprise,
         date_debut_alternance, entry_level, year_of_entry, year_of_exit, study_lenght, level_of_exit, still_student,	
-        compta_payment_type, compta_paid, compta_payment_due, compta_relance):
+        compta_payment_type, compta_paid, compta_payment_due, compta_relance, pedago):
     """
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
@@ -13,47 +13,51 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
-    print("auth_data: ", auth_data)
- 
-    db.child("users").child(auth_data["localId"]).set(
-        Student(
-            # mandatory used for creation, if you got more data you can add more details
-            firstname=firstname.title(),
-            lastname=lastname.upper(),
-            email=email.lower(),
-            campus=campus.lower(),
-            date_of_birth=date_of_birth.lower(),
-            year_of_birth=year_of_birth,
-            street_address=street_address.lower(),
-            gender=gender.lower(),
-            region=region.lower(),
-            level=level.lower(),
-            speciality=speciality.lower(),
-            contratPro=contratPro,
-            previous_level=previous_level.lower(),
-            nbre_absence=nbre_absence,
-            age_of_entry=age_of_entry,
-            is_hired=is_hired,
-            lenght_month_hired=lenght_month_hired,
-            company_hired=company_hired.lower(),
-            entreprise_alternance=entreprise_alternance.lower(),
-            entreprise_alternance_address=entreprise_alternance_address.lower(),
-            poste_occupe=poste_occupe.lower(),
-            secteur_entreprise=secteur_entreprise.lower(),
-            date_debut_alternance=date_debut_alternance.lower(),
-            entry_level=entry_level.lower(),
-            year_of_entry=year_of_entry,
-            year_of_exit=year_of_exit,
-            study_lenght=study_lenght,
-            level_of_exit=level_of_exit.lower(),
-            still_student=still_student,
-            compta_payment_type=compta_payment_type.lower(),
-            compta_paid=compta_paid,
-            compta_payment_due=compta_payment_due,	
-            compta_relance=compta_relance,
-        ).__dict__
-        # les champs du model à None ne seront pas enregistré en base
-    )
+    # print("auth_data: ", auth_data)
+    
+    student = Student(
+        # mandatory used for creation, if you got more data you can add more details
+        firstname=firstname.title(),
+        lastname=lastname.upper(),
+        email=email.lower(),
+        campus=campus.lower(),
+        date_of_birth=date_of_birth.lower(),
+        year_of_birth=year_of_birth,
+        street_address=street_address.lower(),
+        gender=gender.lower(),
+        region=region.lower(),
+        level=level,
+        speciality=speciality,
+        contratPro=contratPro,
+        previous_level=previous_level.lower(),
+        nbre_absence=nbre_absence,
+        age_of_entry=age_of_entry,
+        is_hired=is_hired,
+        lenght_month_hired=lenght_month_hired,
+        company_hired=company_hired,
+        entreprise_alternance=entreprise_alternance,
+        entreprise_alternance_address=entreprise_alternance_address,
+        poste_occupe=poste_occupe,
+        secteur_entreprise=secteur_entreprise,
+        date_debut_alternance=date_debut_alternance,
+        entry_level=entry_level,
+        year_of_entry=year_of_entry,
+        year_of_exit=year_of_exit,
+        study_lenght=study_lenght,
+        level_of_exit=level_of_exit,
+        still_student=still_student,
+        compta_payment_type=compta_payment_type,
+        compta_paid=compta_paid,
+        compta_payment_due=compta_payment_due,	
+        compta_relance=compta_relance,
+        pedago=pedago
+    ).__dict__
+    # les champs du model à None ne seront pas enregistré en base
+        
+    # print(student)
+    
+    db.child("users").child(auth_data["localId"]).set(student)
+    
 
 def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name):
     """
@@ -157,6 +161,18 @@ def get_all_users_data(db):
 def get_user_data_with_id(db, id):
     return db.child("users").child(id).get().val()
 
+def user_email_already_registred(db, email):
+    """
+    check also in Authentication
+    """
+    users = db.child("users").get().each()
+
+    if users is not None:
+        for user in users:
+            if user.val()['email'] == email :
+                return True
+    return False
+        
 def update_student_data_by_id(db, id, firstname, lastname, email):
     """
     from client id has to be sent in the post request automatically

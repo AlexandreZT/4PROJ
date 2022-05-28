@@ -1,3 +1,5 @@
+MODULE_CODE_LIST = ["1WORK","1WDEV","1ITWO","1TEAM","1PYTH","1O365","2JAVA","2PHPD","2GRAP","2DTTL","2DVST","2AWSP","3ANDM","3CCNA","3ASPC","3LPIC","3AGIL","4AZUR","4BOSS","4GDPR","4DOCKR","4CHGM","4BINT","4SECU","5CCNA","5DATA","5DOOP","5ITIL","5RBIG","5BLOC","5MDD"]
+
 class User:
     def __init__(self, firstname, lastname, email, user_type=None):
         self.firstname = firstname
@@ -48,7 +50,8 @@ class Student(User):
         compta_payment_type=None,
         compta_paid=None,
         compta_payment_due=None,	
-        compta_relance=None
+        compta_relance=None,
+        pedago=None
     ):
         super().__init__(firstname, lastname, email, user_type='student')
         # details
@@ -86,9 +89,10 @@ class Student(User):
                 "compta_paid"	: compta_paid,
                 "compta_payment_due": compta_payment_due,	
                 "compta_relance": compta_relance
-            }
+            },
+            "pedago": pedago
         }
-                
+
 class Staff(User):
     def __init__(self,
         firstname, 
