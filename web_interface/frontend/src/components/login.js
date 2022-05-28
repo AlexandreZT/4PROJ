@@ -1,7 +1,7 @@
 import '../style/form.css';
 
 
-function login() {
+export default function Login() {
 
     function handleSubmit (e) {
 		e.preventDefault()
@@ -64,5 +64,3 @@ function login() {
 	);
     
 }
-
-export default login;
