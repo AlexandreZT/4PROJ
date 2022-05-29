@@ -41,9 +41,12 @@ student_pedago = pd.read_csv ("../../Data/Liste_Etudiant_Pédagogie_Notes.csv", 
 
 
 def staffs_migration():
+    i = 0
     for staff in campus_staff.iterrows():
         email=staff[1]['email']
         if users.user_email_already_registred(db, email) == False:
+            if i >= 20:
+                break
             users.create_staff(
                 db=db, 
                 auth=auth,
@@ -54,11 +57,16 @@ def staffs_migration():
                 phone=None,
                 role_name=staff[1]['Roles']
             )
+            i+=1
+    print(i)
 
 def teachers_migration():
+    i = 0
     for row in teachers.iterrows():
         email=row[1]['email']
         if users.user_email_already_registred(db, email) == False:
+            if i >= 20:
+                break
             users.create_teachers(
                 db=db, 
                 auth=auth,
@@ -69,12 +77,17 @@ def teachers_migration():
                 is_available=None,
                 section=row[1]['Section']
             )
+            i+=1
+    print(i)
     
 
 def students_migration():
+    i = 0
     for admin in student_admin.iterrows():
         email=admin[1]['email']
         if users.user_email_already_registred(db, email) == False: # je peux ajouter l'user car il existe pas
+            if i >= 20:
+                break
             alternance = None
             for user in student_alternance.iterrows():
                 if user[1]['email'] == email:
@@ -141,10 +154,12 @@ def students_migration():
                 # data pedago
                 pedago=pedago_notes
             )
+            i+=1
+    print(i)
 
 def tutor_migration():
     fake = Faker()
-    number_of_generated_tutors = 1
+    number_of_generated_tutors = 20
     for _ in range(number_of_generated_tutors): 
         email = fake.company_email()
         if users.user_email_already_registred(db, email) == False:
@@ -182,7 +197,7 @@ def tutor_migration():
 
 # ici tu choisi les fonctions que tu veux executer
 if __name__ == '__main__':
-    # students_migration()
+    students_migration()
     # staffs_migration()
-    teachers_migration()
+    # teachers_migration()
     # tutor_migration()
