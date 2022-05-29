@@ -218,6 +218,28 @@ def update_student_data_by_id(db, id, firstname, lastname, email):
     except:
         return 400
 
+def update_student_pedago_by_email_or_id(db, id, pedago):
+    """
+    from client id has to be sent in the post request automatically
+    """
+    try:
+        data = db.child("users").child(id).get().val()
+        new_details = data["details"]
+        new_pedago = data["details"]["pedago"]
+        for key in pedago:
+            new_pedago[key] = pedago[key]
+
+        new_details["pedago"]= new_pedago
+
+        db.child("users").child(id).update(
+            {
+                "details":new_details
+            }
+        )
+
+    except:
+        return 404
+
 def update_teacher_data_by_id(db, id, firstname, lastname, email):
     """
     from client id has to be sent in the post request automatically
@@ -338,6 +360,22 @@ def get_all_tutors_data(db):
             data.update({user.key() : user.val()})
 
     return data
+
+def get_student_pedago_by_email_or_id(db, id):
+    if '@' in id:
+        users = db.child("users").get()
+        for user in users:
+            if user.val()['email'] == id:
+                if user.val()['user_type'] == "student":
+                    return user.val()['details']['pedago']
+                else:
+                    return {}
+    else:
+        user = db.child("users").child(id).get()
+        if user.val()['user_type'] == "student":
+            return user.val()['details']['pedago']
+        else:
+            return {}
 
 def delete_only_user_data_with_id(db, id):    
     db.child("users").child(id).remove()

@@ -1,83 +1,70 @@
 {
     "users": {
-        "id1": {
-            "lastname" : "Jessel",
-            "firstname" :"Sunny",
-            "email" : "sunnyjessel@supinfo.com",
-            "password": "crypted",
-            "campus": "Distanciel",
-            "type": {
-                "type_name": "students",
-                "students_details" : {
-                    "date_of_birth"	:"02/10/1979",
-		            "year_of_birth"	:"1979",
-		            "street_address":"40 Nova Crossing",
-                    "gender": "male",
-                    "region": "str",
-                    "level":"M.ENG 1",
-		            "speciality":"Intelligence Artificielle",
-                    "contratPro" : "true",
-                    "previous_level":"Bac",
-                    "nbre_absence":4,
-                    "age_of_entry": 22,
-                    "alternant" : {
-                        "is_hired"	:"true",
-                        "lenght_month_hired": 3,
-                        "company_hired"	:"Wavestone",
-                        "entreprise_alternance"	:"Adobe",
-                        "entreprise_alternance_address"	:"3 Holy Cross Avenue",
-                        "poste_occupe"	:"Software Engineer",
-                        "secteur_entreprise" :"Software",
-                        "date_debut_alternance":"2021-11-11 13:14:55 UTC"
-                    },
-                    "compta": {
-                        "entry_level": "B.ENG 1",
-                        "year_of_entry"	: 2001,
-                        "year_of_exit"	: 2003,
-                        "study_lenght"	: 2,
-                        "level_of_exit"	: "B.ENG 2",
-                        "still_student"	: false,	
-                        "compta_payment_type": "Comptant/OPCA/Echelonnement",	
-                        "compta_paid"	: true,
-                        "compta_payment_due": 0,	
-                        "compta_relance": false
-                    },                    
-                    "pedago": {
-                        "1PYTH": 17,
-                        "2DTTL": 15,
-                        "3AGIL": 18,
-                        "4SECU": 12,
-                        "5CCNA": 14   
-                    }
-                }
-            }
-        },
-        "903": {
-            "lastname" : "Plomer",
-            "firstname" :"Vitoria",
-            "email" : "vitoriaplomer@supinfo.com",
-            "password": "crypted",
-            "campus":"Caen",
-            "type": {
-                "type_name": "staff",
-                "details" : {
-                    "role":"Full Professor"
-                }
-            }
-
-        },
-        "1640": {
-            "lastname" : "Tideswell",
-            "firstname" :"Mara",
-            "email" : "maratideswell@supinfo.com",
-            "password": "crypted",
-            "campus":"Caen",
-            "type": {
-                "type_name": "teachers",
+        "04SvTrjP3tYWXdyVXZPcDdsUwe82": {
                 "details": {
-                    "module_enseignees": ["2LPIC", "3LPIC", "4LPIC"]
-                }   
-            }
-        }      
+                    "age_of_entry": 18.0,
+                    "alternant": {
+                        "company_hired": "Huawei",
+                        "date_debut_alternance": "None",
+                        "is_hired": true
+                    },
+                    "campus": "distanciel",
+                    "compta": {
+                        "compta_paid": true,
+                        "compta_payment_due": 0.0,
+                        "compta_payment_type": "Comptant",
+                        "entry_level": "B.ENG 1",
+                        "level_of_exit": "M.ENG 2",
+                        "still_student": false,
+                        "study_lenght": 5.0,
+                        "year_of_entry": 2002.0,
+                        "year_of_exit": 2007.0
+                    },
+                    "contratPro": false,
+                    "date_of_birth": "23/09/1984",
+                    "gender": "male",
+                    "nbre_absence": 2.0,
+                    "pedago": {
+                        "1ITWO": "10.26",
+                        "1O365": "15.23",
+                        "1PYTH": "13.05",
+                        "1TEAM": "12.15",
+                        "1WDEV": "15.05",
+                        "1WORK": "15.5",
+                        "2AWSP": "13.3",
+                        "2DTTL": "14.56",
+                        "2DVST": "13.61",
+                        "2GRAP": "18.25",
+                        "2JAVA": "6.08",
+                        "2PHPD": "18.53",
+                        "3AGIL": "17.68",
+                        "3ANDM": "16.44",
+                        "3ASPC": "9.53",
+                        "3CCNA": "11.72",
+                        "3LPIC": "15.37",
+                        "4AZUR": "16.34",
+                        "4BINT": "5.52",
+                        "4BOSS": "16.55",
+                        "4CHGM": "15.42",
+                        "4DOCKR": "13.73",
+                        "4GDPR": "15.06",
+                        "4SECU": "13.44",
+                        "5BLOC": "15.62",
+                        "5CCNA": "8.11",
+                        "5DATA": "17.34",
+                        "5DOOP": "12.27",
+                        "5ITIL": "13.68",
+                        "5RBIG": "12.23"
+                    },
+                    "previous_level": "bac",
+                    "region": "hauts-de-france",
+                    "street_address": "0949 old gate place",
+                    "year_of_birth": 1984.0
+                },
+                "email": "ilysaaujouanet@supinfo.com",
+                "firstname": "Ilysa",
+                "lastname": "AUJOUANET",
+                "user_type": "student"
+        }   
     }
 }

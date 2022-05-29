@@ -76,6 +76,12 @@ def get_all_students_data():
         return Response(status=404)
     return jsonify(users.get_all_students_data(db))    
 
+@app.route('/student/<id>/pedago', methods=['GET'])
+def get_student_pedago_by_email_or_id(id):
+    if request.method != 'GET': 
+        return Response(status=404)
+    return jsonify(users.get_student_pedago_by_email_or_id(db, id))    
+
 # -------------- CREATE USERS
 
 @app.route('/create-student', methods=['POST'])
@@ -217,6 +223,22 @@ def update_student_data_by_id():
     email = request.json["email"]
 
     response = users.update_student_data_by_id(db, id, firstname, lastname, email)
+    if response == 404:
+        return Response(status=404)
+    return Response(status=200)
+
+@app.route('/student/update/pedago', methods=['PUT'])
+def update_student_pedago_by_email_or_id():
+    if request.method != 'PUT': 
+        return Response(status=404)
+
+    id = request.json["id"]
+    pedago = request.json["pedago"]
+
+    print("avant")
+
+    response = users.update_student_pedago_by_email_or_id(db, id, pedago)
+    print("après")
     if response == 404:
         return Response(status=404)
     return Response(status=200)
