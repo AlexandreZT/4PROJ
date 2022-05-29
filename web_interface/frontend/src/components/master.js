@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // import { useNavigate } from 'react-router';
+import React, { useState, useEffect } from 'react';
 import Absence from './absence'
 import Comptability from './comptability'
 import Contract from './contract'
@@ -12,8 +13,8 @@ import '../style/master.css';
 
 export default function Master() {
     // TODO : CHECK IS THERE IS CONNECTED USER:
-    const isLoggedIn=true  // by default use this to simulate if user is connected
-    // const navigate = useNavigate();
+    const [isOnline, setIsOnline] = useState(false); // by default use this to simulate if user is connected
+    // let  navigate = useNavigate(); // redirect => white screen
     const headerMenuItems = [
         {href: "/absence", title: "Absence"},
         {href: "/comptability", title: "Comptability"},
@@ -23,7 +24,18 @@ export default function Master() {
         {href: "/report", title: "Report"}
     ]
 
-    if (isLoggedIn===true) {
+    useEffect(() => {
+        // check is there is a token stored
+        let token = localStorage.getItem('localId')
+        if (token==="iamastrangetokenxdplzdontjudgemewhyareyoulaughing") {
+            setIsOnline(true)
+        }
+        else {
+            setIsOnline(false)
+        }
+    },  [isOnline]);
+
+    if (isOnline) {
         return (
             <Router>
                 <div>
@@ -47,7 +59,8 @@ export default function Master() {
         )
     }
     else {
-        // navigate("/") # redirect me there plz
+        
+        // navigate("/") // redirect me there plz
         return (
             <Login />
         )

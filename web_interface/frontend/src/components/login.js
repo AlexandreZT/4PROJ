@@ -24,11 +24,13 @@ export default function Login() {
             }).then(response => {
                 console.log(response)
                 if (response.status === 200) {
-                    this.props.history.push("/");
+					localStorage.setItem('localId', "iamastrangetokenxdplzdontjudgemewhyareyoulaughing")
+                    window.location.reload(false);
                     return
                 }
             }) // .catch(err => console.log(err)); 
         }
+		
 	}
 
 	return (
