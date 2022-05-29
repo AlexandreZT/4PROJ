@@ -10,7 +10,6 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
     """
-    
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     # print("auth_data: ", auth_data)
@@ -63,8 +62,6 @@ def create_teachers(db, auth, firstname, lastname, email, modules, is_available,
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
     """
-    
-    
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     # print("auth_data: ", auth_data)
@@ -85,7 +82,6 @@ def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
     """
-    
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     # print("auth_data: ", auth_data)
@@ -103,13 +99,12 @@ def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
         # les champs du model à None ne seront pas enregistré en base
 
     db.child("users").child(auth_data["localId"]).set(staff)
-
-def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_available):
+    
+def create_teacher(db, auth, firstname, lastname, email, section, modules, is_available):
     """
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
     """
-    
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     # print("auth_data: ", auth_data)
@@ -120,8 +115,8 @@ def create_teacher(db, auth, firstname, lastname, email, campus, modules, is_ava
             firstname=firstname.title(),
             lastname=lastname.upper(),
             email=email.lower(),
-            campus=campus.upper(),
-            modules=modules.upper(),
+            section=section,
+            modules=modules,
             is_available=is_available,
             # details optionals, if not filled other method will permit you to edit later
         ).__dict__

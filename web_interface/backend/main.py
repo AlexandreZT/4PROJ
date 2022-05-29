@@ -88,7 +88,7 @@ def create_student():
     email = request.json["email"]
     campus = request.json["campus"]
     date_of_birth = request.json["date_of_birth"]
-    year_of_birth = request.json["year_of_birth"]
+    year_of_birth = date_of_birth.split("-")[0]
     street_address = request.json["street_address"]
     gender = request.json["gender"]
     region = request.json["region"]
@@ -96,32 +96,34 @@ def create_student():
     speciality = request.json["speciality"]
     contratPro = request.json["contratPro"]
     previous_level = request.json["previous_level"]
-    nbre_absence = request.json["nbre_absence"]
+    nbre_absence = None
     age_of_entry = request.json["age_of_entry"]
-    is_hired = request.json["is_hired"]
-    lenght_month_hired = request.json["lenght_month_hired"]
-    company_hired = request.json["company_hired"]
-    entreprise_alternance = request.json["entreprise_alternance"]
-    entreprise_alternance_address = request.json["entreprise_alternance_address"]
-    poste_occupe = request.json["poste_occupe"]
-    secteur_entreprise = request.json["secteur_entreprise"]
-    date_debut_alternance = request.json["date_debut_alternance"]
-    entry_level = request.json["entry_level"]
-    year_of_entry = request.json["year_of_entry"]
-    year_of_exit = request.json["year_of_exit"]
-    study_lenght = request.json["study_lenght"]
-    level_of_exit = request.json["level_of_exit"]
-    still_student = request.json["still_student"]
-    compta_payment_type = request.json["compta_payment_type"]
-    compta_paid = request.json["compta_paid"]
-    compta_payment_due = request.json["compta_payment_due"]
-    compta_relance = request.json["compta_relance"]
+    # not in form
+    is_hired = None
+    lenght_month_hired = None
+    company_hired = None
+    entreprise_alternance = None
+    entreprise_alternance_address = None
+    poste_occupe = None
+    secteur_entreprise = None
+    date_debut_alternance = None
+    entry_level = None
+    year_of_entry = None
+    year_of_exit = None
+    study_lenght = None
+    level_of_exit = None
+    still_student = None
+    compta_payment_type = None
+    compta_paid = None
+    compta_payment_due = None
+    compta_relance = None
+    pedago = {}
 
     users.create_student(db, auth, firstname, lastname, email, campus, date_of_birth, year_of_birth, street_address, gender,
         region, level, speciality, contratPro, previous_level, nbre_absence, age_of_entry, is_hired, lenght_month_hired,
         company_hired, entreprise_alternance, entreprise_alternance_address, poste_occupe, secteur_entreprise,
         date_debut_alternance, entry_level, year_of_entry, year_of_exit, study_lenght, level_of_exit, still_student,	
-        compta_payment_type, compta_paid, compta_payment_due, compta_relance)
+        compta_payment_type, compta_paid, compta_payment_due, compta_relance, pedago)
     
     return Response(status=200)
 
@@ -149,11 +151,11 @@ def create_teacher():
     firstname = request.json["firstname"]
     lastname = request.json["lastname"]
     email = request.json["email"]
-    campus = request.json["campus"]
-    modules = request.json["modules"]
-    is_available = request.json["is_available"]
+    section = request.json["section"]
+    modules = None # request.json["modules"]
+    is_available = None # request.json["is_available"]
     
-    users.create_teacher(db, auth, firstname, lastname, email, campus, modules, is_available)
+    users.create_teacher(db, auth, firstname, lastname, email, section, modules, is_available)
     
     return Response(status=200)
 
@@ -166,10 +168,14 @@ def create_tutor():
     lastname = request.json["lastname"]
     email = request.json["email"]
     phone = request.json["phone"]
+    gender = request.json["gender"]
     enterprise_name = request.json["enterprise_name"]
     enterprise_location = request.json["enterprise_location"]
-    
-    users.create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, enterprise_location)
+    job  = request.json["job"]
+    date_of_birth = None
+    student_apprentices = []
+
+    users.create_tutor(db, auth, firstname, lastname, email, phone, gender, enterprise_name, enterprise_location, job, date_of_birth, student_apprentices)
     
     return Response(status=200)
 
