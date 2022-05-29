@@ -39,10 +39,10 @@ export default function Directory() {
             return Object.keys(data).map( (id) => {
               return <tr>
                 {/* <td>{id}</td> */}
-                <td>{data[id]["firstname"]}</td>
-                <td>{data[id]["lastname"]}</td>
+                <td>{data[id]["firstname"].charAt(0).toUpperCase() + data[id]["firstname"].substr(1).toLowerCase()}</td>
+                <td>{data[id]["lastname"].toUpperCase()}</td>
                 <td>{data[id]["email"]}</td>
-                <td>{data[id]["user_type"]}</td>
+                <td>{data[id]["user_type"].charAt(0).toUpperCase() + data[id]["user_type"].substr(1).toLowerCase()}</td>
               </tr>;
             });
         } else {
