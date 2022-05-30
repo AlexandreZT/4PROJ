@@ -46,7 +46,7 @@ export default function Master() {
                 <div>
                     <header>
                         <nav>  
-                            <ul>  
+                            <ul>
                             <li> <a href="#"> Profile </a>  
                             </li>  
                             <li>  

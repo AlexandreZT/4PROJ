@@ -64,7 +64,7 @@ export default function Member() {
                     <br/>
                     <div className="form-group">
                         <label>Email*</label><br/>
-                        <input type="text" className="form-control" placeholder="Enter Email" required/>
+                        <input type="email" className="form-control" placeholder="Enter Email" required/>
                     </div>
                     <br/>                           
                     <div className="form-group">
@@ -221,12 +221,19 @@ export default function Member() {
                     <br/>
                     <div className="form-group">
                         <label>Email*</label><br/>
-                        <input type="text" className="form-control" placeholder="Enter Email" required/>
+                        <input type="email" className="form-control" placeholder="Enter Email" required/>
                     </div>
                     <br/> 
                     <div className="form-group">
                         <label>Campus*</label><br/>
-                        <input type="text" className="form-control" placeholder="Enter Campus" required/>
+                        <select name="type" required>
+                            <option value="distanciel">Distanciel</option>
+                            <option value="paris">Paris</option>
+                            <option value="caen">Caen</option>
+                            <option value="lille">Lille</option>
+                            <option value="lyon">Lyon</option>
+                            <option value="tours">Tours</option>
+                        </select>
                     </div>
                     <br/>
                     <div className="form-group">
@@ -312,7 +319,7 @@ export default function Member() {
                     <br/>
                     <div className="form-group">
                         <label>Email*</label><br/>
-                        <input type="text" className="form-control" placeholder="Enter Email" required/>
+                        <input type="email" className="form-control" placeholder="Enter Email" required/>
                     </div>
                     <br/> 
                     <div className="form-group">
@@ -408,7 +415,7 @@ export default function Member() {
                     <br/>
                     <div className="form-group">
                         <label>Email*</label><br/>
-                        <input type="text" className="form-control" placeholder="Enter Email" required/>
+                        <input type="email" className="form-control" placeholder="Enter Email" required/>
                     </div>
                     <br/> 
                     <div className="form-group">
