@@ -1,3 +1,40 @@
+body   
+{  
+    /* height: 125vh;   */
+    margin-top: 40px;  
+    /* padding: 30px;   */
+    background-size: cover;  
+    font-family: sans-serif;  
+}
+
+header {
+    padding-left: 160px;
+    background-color: #111;
+    position: fixed;  
+    left: 0;  
+    right: 0;  
+    top: 0px;  
+    height: 30px;  
+    display: flex;
+    align-items: center;  
+    box-shadow: 0 0 25px 0 black;  
+} 
+
+header * {  
+    display: inline;  
+}  
+header li {  
+    margin: 20px;  
+}  
+header li a {  
+    color: #818181; 
+    text-decoration: none;  
+}  
+
+header a:hover {
+    color: #f1f1f1;
+}
+
 .sidenav {
     height: 100%;
     width: 160px;
@@ -11,7 +48,7 @@
 }
 
 .sidenav a {
-    padding: 6px 8px 6px 16px;
+    padding: 40px 10px 30px 15px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
