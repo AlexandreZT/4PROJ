@@ -10,7 +10,7 @@ export default function Directory() {
 
             var config = {
                 method: 'get',
-                url: "https://4projgroup24.pythonanywhere.com/users" // "http://127.0.0.1:5000/users // + state.user_filter // if uing filter
+                url: "http://127.0.0.1:5000/users" // https://4projgroup24.pythonanywhere.com/users" // "http://127.0.0.1:5000/users // + state.user_filter // if uing filter
             };
             
             axios(config)

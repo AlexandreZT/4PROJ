@@ -1,66 +1,90 @@
 import React, { useState, useEffect } from 'react';
+import {MODULE_CODE_LIST} from '../js/constant'
 
 export default function Report() {
-    const  [user, setUser] = useState({userId: null, displayed_data: null});
+    const  [user, setUser] = useState({userId: null, data: null, status_code: null});
 
-    function load_directory (callback) {
-        if (user.userId != null) { // hack to stop requesting infiniti loop (function still called)
-            var axios = require('axios');
+    function load_directory (userId, callback) {
+        var axios = require('axios');
 
-            var config = {
-                method: 'get',
-                url: "http://127.0.0.1:5000/student/"+user.userId+"/pedago"
-            };
-            
-            axios(config)
+        var config = {
+            method: 'get',
+            url: "http://127.0.0.1:5000/student/"+userId+"/pedago"
+        };
+        
+        axios(config)
 
-            .then(function (response) {
-                if (response) {
-                    callback(response.data); // Return your data inside the callback function
-                } else {
-                    callback(null); // Return null if data doesn't exists
-                }
-            }).catch(function (error) {
-                console.log(error);
-            });
-        }
+        .then(function (response) {
+            if (response) {
+                callback(userId, response.data, response.status); // Return your data inside the callback function
+            } else {
+                callback(null); // Return null if data doesn't exists
+            }
+        }).catch(function (error) {  
+            callback(userId, error.response.data, error.response.status);
+        });
+        
     }
     
-    load_directory(function (mydata) { // Call load_directory to get your data
-        console.log("mydata", mydata)
-        setUser({...user, displayed_data: mydata});
+    function updatedata (userId, data, status_code) { // Call load_directory to get your data
+        console.log("userId, data, code", userId, data, status_code)
+        setUser({...user, userId: userId, data: data, status_code: status_code});
         // continue here
-    })
+    }
 
     const display_pedago_data = () => {
-        if (user.userId != null) { // 8pTwKdU0dFMOCDSydHHrLlMFp3n1
+        if (user.status_code == 200) { // 8pTwKdU0dFMOCDSydHHrLlMFp3n1
             return (
                 <div>                
-                    <p>{user.displayed_data["4AZUR"]}</p>
+                    {/* <p>{constant[1]}</p>   */}
+                    {user.data["4AZUR"]}
                 </div> 
             )
-        } 
+        }
+    }
+
+    function displayModules ()  {
+        return Object.keys(MODULE_CODE_LIST).map( (index) => {
+            return <td>
+                {MODULE_CODE_LIST[index]}
+            </td>;
+          });
     }
     
     function changeUserSelected(e) {
         let {name, value} = e.target;
-        setUser({...user, userId: value, displayed_data: display_pedago_data()})
+        load_directory(value, updatedata) // call me only if needed on submit
     }
 
     // this hook will get called everytime when user has changed
     useEffect (() => { 
         // perform some action which will get fired everytime when user gets updated
-           console.log('Current user:', user)
+        //    console.log('Current user:', user)
         }, [user]
     )
 
     return (
         <div>
             <div>
-            <label>Select User:&nbsp;</label>
-            <input onChange={changeUserSelected}/>                
-            {display_pedago_data(user.displayed_data)}
-        </div>
+                <form>
+                    <label>Select User:&nbsp;</label>
+                    <input onChange={changeUserSelected} placeholder="Enter User Email or Id"/>
+                    {/* <button type="submit" className="btn btn-primary btn-block">Search</button>             */}
+                    
+                </form>
+            </div>
+            <div>
+                <table style={{width: "100%"}} border={2} cellPadding={4}>
+                <thead>
+                    <tr>
+                        {displayModules()}                        
+                    </tr>            
+                </thead>
+                <tbody>
+                    {display_pedago_data(user.data)}
+                </tbody> 
+            </table>
+            </div>
         </div>
     )
 }
