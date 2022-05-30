@@ -235,10 +235,8 @@ def update_student_pedago_by_email_or_id():
     id = request.json["id"]
     pedago = request.json["pedago"]
 
-    print("avant")
-
     response = users.update_student_pedago_by_email_or_id(db, id, pedago)
-    print("après")
+    
     if response == 404:
         return Response(status=404)
     return Response(status=200)
