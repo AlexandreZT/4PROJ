@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {BASE_URL} from '../js/constant'
 
 export default function Directory() {
 
@@ -10,7 +11,7 @@ export default function Directory() {
 
             var config = {
                 method: 'get',
-                url: "http://127.0.0.1:5000/users" // https://4projgroup24.pythonanywhere.com/users" // "http://127.0.0.1:5000/users // + state.user_filter // if uing filter
+                url: BASE_URL+"/users" // + state.user_filter // if uing filter
             };
             
             axios(config)

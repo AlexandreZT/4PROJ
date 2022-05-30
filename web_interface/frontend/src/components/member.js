@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import {BASE_URL} from '../js/constant'
 
 export default function Member() {
     // Forms can be improved by giving a list of input & options instead of duplicates
@@ -13,8 +13,8 @@ export default function Member() {
             alert(`
             alert todo
             `)
-        } else {                
-            fetch('http://127.0.0.1:5000/create-student', {
+        } else {
+            fetch(BASE_URL+"/create-student", {
                 method: 'POST',
                 headers:{
                     "Content-Type":"application/json"
@@ -178,7 +178,7 @@ export default function Member() {
             alert todo
             `)
         } else {                
-            fetch('http://127.0.0.1:5000/create-staff', {
+            fetch(BASE_URL+"/create-staff", {
                 method: 'POST',
                 headers:{
                     "Content-Type":"application/json"
@@ -274,7 +274,7 @@ export default function Member() {
             alert todo
             `)
         } else {                
-            fetch('http://127.0.0.1:5000/create-tutor', {
+            fetch(BASE_URL+"/create-tutor", {
                 method: 'POST',
                 headers:{
                     "Content-Type":"application/json"
@@ -374,7 +374,7 @@ export default function Member() {
             alert todo
             `)
         } else {                
-            fetch('http://127.0.0.1:5000/create-teacher', {
+            fetch(BASE_URL+"/create-teacher", {
                 method: 'POST',
                 headers:{
                     "Content-Type":"application/json"

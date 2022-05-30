@@ -1,5 +1,5 @@
 import '../style/form.css';
-
+import {BASE_URL} from '../js/constant'
 
 export default function Login() {
 
@@ -12,7 +12,7 @@ export default function Login() {
             Password lengh 8+
             `)
         } else {
-            fetch('http://localhost:5000/sign-in', {
+            fetch(BASE_URL+"/sign-in", {
                 method: 'POST',
                 headers:{
                     "Content-Type":"application/json"

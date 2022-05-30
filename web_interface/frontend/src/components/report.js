@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {MODULE_CODE_LIST, NUMBER_OF_MODULES} from '../js/constant'
+import {MODULE_CODE_LIST, BASE_URL} from '../js/constant'
 
 export default function Report() {
     const  [user, setUser] = useState({userId: null, data: null, status_code: null});
@@ -9,7 +9,7 @@ export default function Report() {
 
         var config = {
             method: 'get',
-            url: "http://127.0.0.1:5000/student/"+userId+"/pedago"
+            url: BASE_URL+"/student/"+userId+"/pedago"
         };
         
         axios(config)
@@ -33,7 +33,7 @@ export default function Report() {
     }
 
     function displayGrades (data) {
-        if (user.status_code == 200) { 
+        if (user.status_code===200) { 
             return Object.keys(MODULE_CODE_LIST).map( (index) => {
                 if (data.hasOwnProperty(MODULE_CODE_LIST[index])){
                     return <td>{data[MODULE_CODE_LIST[index]]}</td>;
@@ -54,7 +54,7 @@ export default function Report() {
     
     function changeUserSelected(e) {
         let {name, value} = e.target;
-        load_directory(value, updatedata) // call me only if needed on submit
+        load_directory(value.trim(), updatedata) // call me only if needed on submit
     }
 
     // this hook will get called everytime when user has changed
