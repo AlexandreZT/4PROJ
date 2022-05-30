@@ -47,19 +47,10 @@ export default function Master() {
                     <header>
                         <nav>  
                             <ul>  
-                            <li>  
-                            <a href="#"> Home </a>  
+                            <li> <a href="#"> Profile </a>  
                             </li>  
                             <li>  
-                            <a href="#"> About </a>  
-                            </li>  
-                            <li>  
-                            <a href="#"> Contact </a>  
-                            </li>  
-                            <li> <a href="#"> Terms of use </a>  
-                            </li>  
-                            <li>  
-                            <a href="#"> Join Us </a>  
+                            <a href="#"> Settings </a>  
                             </li>
                             <li style={{paddingRight: 0}}>  
                                 <a href="#" onClick={disconnect}> Logout </a>  
