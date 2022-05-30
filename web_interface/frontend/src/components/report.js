@@ -32,7 +32,7 @@ export default function Report() {
         // continue here
     }
 
-    function display_pedago_data (data) {
+    function displayNotes (data) {
         if (user.status_code == 200) { 
             return Object.keys(MODULE_CODE_LIST).map( (index) => {
                 if (data.hasOwnProperty(MODULE_CODE_LIST[index])){
@@ -69,9 +69,7 @@ export default function Report() {
             <div>
                 <form>
                     <label>Select User:&nbsp;</label>
-                    <input onChange={changeUserSelected} placeholder="Enter User Email or Id"/>
-                    {/* <button type="submit" className="btn btn-primary btn-block">Search</button>             */}
-                    
+                    <input onChange={changeUserSelected} placeholder="Enter User Email or Id"/>                    
                 </form>
             </div>
             <div>
@@ -82,7 +80,7 @@ export default function Report() {
                     </tr>            
                 </thead>
                 <tbody>
-                    {display_pedago_data(user.data)}
+                    {displayNotes(user.data)}
                 </tbody> 
             </table>
             </div>
