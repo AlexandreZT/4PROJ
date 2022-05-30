@@ -4,7 +4,7 @@ export default function Report() {
     const  [user, setUser] = useState({userId: null, displayed_data: null});
 
     function load_directory (callback) {
-        if (user.userId == null) { // hack to stop requesting infiniti loop (function still called)
+        if (user.userId != null) { // hack to stop requesting infiniti loop (function still called)
             var axios = require('axios');
 
             var config = {
@@ -33,38 +33,10 @@ export default function Report() {
     })
 
     const display_pedago_data = () => {
-        if (user.userId != "") { // 8pTwKdU0dFMOCDSydHHrLlMFp3n1
+        if (user.userId != null) { // 8pTwKdU0dFMOCDSydHHrLlMFp3n1
             return (
-                <div>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    <p>{user.userId}</p>
-                    {/* <p>{user.displayed_data["4AZUR"]}</p> */}
+                <div>                
+                    <p>{user.displayed_data["4AZUR"]}</p>
                 </div> 
             )
         } 

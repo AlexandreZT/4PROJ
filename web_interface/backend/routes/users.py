@@ -367,15 +367,16 @@ def get_student_pedago_by_email_or_id(db, id):
         for user in users:
             if user.val()['email'] == id:
                 if user.val()['user_type'] == "student":
-                    return user.val()['details']['pedago']
-                else:
-                    return {}
+                    return user.val()['details']['pedago'], 200 
+        return {"message" : "id or email invalid"}, 403  
     else:
-        user = db.child("users").child(id).get()
-        if user.val()['user_type'] == "student":
-            return user.val()['details']['pedago']
-        else:
-            return {}
+        try:
+            user = db.child("users").child(id).get()
+            if user.val()['user_type'] == "student":
+                return user.val()['details']['pedago'], 200
+        except:
+            return {"message" : "id or email invalid"}, 403
+
 
 def delete_only_user_data_with_id(db, id):    
     db.child("users").child(id).remove()
