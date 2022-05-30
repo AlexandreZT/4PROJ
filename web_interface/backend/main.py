@@ -93,6 +93,15 @@ def get_student_comptability_by_email_or_id(id):
     response, status = users.get_student_comptabilty_by_email_or_id(db, id)
 
     return jsonify(response), status
+
+@app.route('/student/<id>/contract', methods=['GET'])
+def get_student_contract_by_email_or_id(id):
+    if request.method != 'GET': 
+        return Response(status=404)
+
+    response, status = users.get_student_contract_by_email_or_id(db, id)
+
+    return jsonify(response), status
        
 
 # -------------- CREATE USERS
