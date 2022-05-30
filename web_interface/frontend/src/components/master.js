@@ -35,10 +35,38 @@ export default function Master() {
         }
     },  [isOnline]);
 
+    function disconnect () {
+        localStorage.removeItem("localId"); // localStorage.clear();
+        window.location.reload(false);
+    }
+
     if (isOnline) {
         return (
             <Router>
                 <div>
+                    <header>
+                        <nav>  
+                            <ul>  
+                            <li>  
+                            <a href="#"> Home </a>  
+                            </li>  
+                            <li>  
+                            <a href="#"> About </a>  
+                            </li>  
+                            <li>  
+                            <a href="#"> Contact </a>  
+                            </li>  
+                            <li> <a href="#"> Terms of use </a>  
+                            </li>  
+                            <li>  
+                            <a href="#"> Join Us </a>  
+                            </li>
+                            <li style={{paddingRight: 0}}>  
+                                <a href="#" onClick={disconnect}> Logout </a>  
+                            </li>   
+                            </ul>  
+                        </nav>  
+                    </header>
                     <div class="sidenav">
                         {headerMenuItems.map((values, index) =>
                             <li><Link key={index} to={values.href}>{values.title}</Link></li>                             
