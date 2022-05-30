@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {MODULE_CODE_LIST} from '../js/constant'
+import {MODULE_CODE_LIST, NUMBER_OF_MODULES} from '../js/constant'
 
 export default function Report() {
     const  [user, setUser] = useState({userId: null, data: null, status_code: null});
@@ -32,14 +32,15 @@ export default function Report() {
         // continue here
     }
 
-    const display_pedago_data = () => {
-        if (user.status_code == 200) { // 8pTwKdU0dFMOCDSydHHrLlMFp3n1
-            return (
-                <div>                
-                    {/* <p>{constant[1]}</p>   */}
-                    {user.data["4AZUR"]}
-                </div> 
-            )
+    function display_pedago_data (data) {
+        if (user.status_code == 200) { 
+            return Object.keys(MODULE_CODE_LIST).map( (index) => {
+                if (data.hasOwnProperty(MODULE_CODE_LIST[index])){
+                    return <td>{data[MODULE_CODE_LIST[index]]}</td>;
+                } else {
+                    return <td>null</td>;
+                }
+            }); 
         }
     }
 
@@ -48,7 +49,7 @@ export default function Report() {
             return <td>
                 {MODULE_CODE_LIST[index]}
             </td>;
-          });
+        });
     }
     
     function changeUserSelected(e) {
