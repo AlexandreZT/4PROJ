@@ -32,7 +32,7 @@ export default function Report() {
         // continue here
     }
 
-    function displayNotes (data) {
+    function displayGrades (data) {
         if (user.status_code == 200) { 
             return Object.keys(MODULE_CODE_LIST).map( (index) => {
                 if (data.hasOwnProperty(MODULE_CODE_LIST[index])){
@@ -80,7 +80,7 @@ export default function Report() {
                     </tr>            
                 </thead>
                 <tbody>
-                    {displayNotes(user.data)}
+                    {displayGrades(user.data)}
                 </tbody> 
             </table>
             </div>
