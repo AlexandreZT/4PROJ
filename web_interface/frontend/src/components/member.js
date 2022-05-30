@@ -448,7 +448,7 @@ export default function Member() {
     }
 
     // this hook will get called everytime when state has changed
-     useEffect (() => { 
+    useEffect (() => { 
         // perform some action which will get fired everytime when state gets updated
            console.log('Current state:', state)
         }, [state]
