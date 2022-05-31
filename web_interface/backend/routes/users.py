@@ -247,7 +247,7 @@ def update_student_comptability_by_email_or_id(db, id, compta):
     try:
         data = db.child("users").child(id).get().val()
         new_details = data["details"]
-        new_pedago = data["details"]["compta"]
+        new_compta = data["details"]["compta"]
         for key in compta:
             new_compta[key] = compta[key]
 
@@ -280,6 +280,18 @@ def update_student_contract_by_email_or_id(db, id, contract):
                 "details":new_details
             }
         )
+
+    except:
+        return 404
+
+def update_student_info_by_email_or_id(db, id, email, firstname, lastname, user_type):
+    """
+    from client id has to be sent in the post request automatically
+    """
+    try:
+        data = db.child("users").child(id).get().val()
+        new_info = data["email"]["firstname"]["lastname"]["user_type"]
+      
 
     except:
         return 404

@@ -300,6 +300,23 @@ def update_student_contract_by_email_or_id():
         return Response(status=404)
     return Response(status=200)
 
+@app.route('/student/update/info', methods=['PUT'])
+def update_student_info_by_email_or_id():
+    if request.method != 'PUT': 
+        return Response(status=404)
+
+    id = request.json["id"]
+    email = request.json["email"]
+    firstname = request.json["firstname"]
+    lastname = request.json["lastname"]
+    user_type = request.json["user_type"]
+
+    response = users.update_student_info_by_email_or_id(db, id, email, firstname, lastname, user_type)
+    
+    if response == 404:
+        return Response(status=404)
+    return Response(status=200)
+
 @app.route('/update-staff-data-by-id', methods=['PUT'])
 def update_staff_data_by_id():
     if request.method != 'PUT': 
