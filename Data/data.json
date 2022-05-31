@@ -25,36 +25,156 @@
                 "gender": "male",
                 "nbre_absence": 2.0,
                 "pedago": {
-                    "1ITWO": "10.26",
-                    "1O365": "15.23",
-                    "1PYTH": "13.05",
-                    "1TEAM": "12.15",
-                    "1WDEV": "15.05",
-                    "1WORK": "15.5",
-                    "2AWSP": "13.3",
-                    "2DTTL": "14.56",
-                    "2DVST": "13.61",
-                    "2GRAP": "18.25",
-                    "2JAVA": "6.08",
-                    "2PHPD": "18.53",
-                    "3AGIL": "17.68",
-                    "3ANDM": "16.44",
-                    "3ASPC": "9.53",
-                    "3CCNA": "11.72",
-                    "3LPIC": "15.37",
-                    "4AZUR": "16.34",
-                    "4BINT": "5.52",
-                    "4BOSS": "16.55",
-                    "4CHGM": "15.42",
-                    "4DOCKR": "13.73",
-                    "4GDPR": "15.06",
-                    "4SECU": "13.44",
-                    "5BLOC": "15.62",
-                    "5CCNA": "8.11",
-                    "5DATA": "17.34",
-                    "5DOOP": "12.27",
-                    "5ITIL": "13.68",
-                    "5RBIG": "12.23"
+                    "1ITWO": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "1O365": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "1PYTH": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "1TEAM": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "1WDEV": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "1WORK": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "2AWSP": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "2DTTL": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "2DVST": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "2GRAP": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "2JAVA": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "2PHPD": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "3AGIL": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "3ANDM": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "3ASPC": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "3CCNA": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "3LPIC": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "4AZUR": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "4BINT": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "4BOSS": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "4CHGM": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "4DOCKR": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "4GDPR": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "4SECU": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "5BLOC": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "5CCNA": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "5DATA": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "5DOOP": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "5ITIL": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    },
+                    "5RBIG": {
+                        "note" : 12,
+                        "comment" : "GG",
+                        "ects" : 3
+                    }
                 },
                 "previous_level": "bac",
                 "region": "hauts-de-france",
