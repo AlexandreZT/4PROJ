@@ -67,7 +67,7 @@ def teachers_migration():
         if users.user_email_already_registred(db, email) == False:
             if i >= 20:
                 break
-            users.create_teachers(
+            users.create_teacher(
                 db=db, 
                 auth=auth,
                 firstname=row[1]['first_name'],

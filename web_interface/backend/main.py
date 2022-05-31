@@ -306,12 +306,9 @@ def update_student_info_by_email_or_id():
         return Response(status=404)
 
     id = request.json["id"]
-    email = request.json["email"]
-    firstname = request.json["firstname"]
-    lastname = request.json["lastname"]
-    user_type = request.json["user_type"]
+    info = request.json["info"]
 
-    response = users.update_student_info_by_email_or_id(db, id, email, firstname, lastname, user_type)
+    response = users.update_student_info_by_email_or_id(db, id, info)
     
     if response == 404:
         return Response(status=404)
