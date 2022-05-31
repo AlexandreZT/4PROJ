@@ -102,6 +102,15 @@ def get_student_contract_by_email_or_id(id):
     response, status = users.get_student_contract_by_email_or_id(db, id)
 
     return jsonify(response), status
+
+@app.route('/student/<id>/absences', methods=['GET'])
+def get_student_absences_by_email_or_id(id):
+    if request.method != 'GET': 
+        return Response(status=404)
+
+    response, status = users.get_student_absences_by_email_or_id(db, id)
+
+    return jsonify(response), status
        
 
 # -------------- CREATE USERS
@@ -258,6 +267,34 @@ def update_student_pedago_by_email_or_id():
     pedago = request.json["pedago"]
 
     response = users.update_student_pedago_by_email_or_id(db, id, pedago)
+    
+    if response == 404:
+        return Response(status=404)
+    return Response(status=200)
+
+@app.route('/student/update/comptability', methods=['PUT'])
+def update_student_comptability_by_email_or_id():
+    if request.method != 'PUT': 
+        return Response(status=404)
+
+    id = request.json["id"]
+    compta = request.json["compta"]
+
+    response = users.update_student_comptability_by_email_or_id(db, id, compta)
+    
+    if response == 404:
+        return Response(status=404)
+    return Response(status=200)
+
+@app.route('/student/update/contract', methods=['PUT'])
+def update_student_contract_by_email_or_id():
+    if request.method != 'PUT': 
+        return Response(status=404)
+
+    id = request.json["id"]
+    contract = request.json["contratPro"]
+
+    response = users.update_student_contract_by_email_or_id(db, id, contract)
     
     if response == 404:
         return Response(status=404)

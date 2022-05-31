@@ -240,6 +240,50 @@ def update_student_pedago_by_email_or_id(db, id, pedago):
     except:
         return 404
 
+def update_student_comptability_by_email_or_id(db, id, compta):
+    """
+    from client id has to be sent in the post request automatically
+    """
+    try:
+        data = db.child("users").child(id).get().val()
+        new_details = data["details"]
+        new_pedago = data["details"]["compta"]
+        for key in compta:
+            new_compta[key] = compta[key]
+
+        new_details["compta"]= new_compta
+
+        db.child("users").child(id).update(
+            {
+                "details":new_details
+            }
+        )
+
+    except:
+        return 404
+
+def update_student_contract_by_email_or_id(db, id, contract):
+    """
+    from client id has to be sent in the post request automatically
+    """
+    try:
+        data = db.child("users").child(id).get().val()
+        new_details = data["details"]
+        new_pedago = data["details"]["contratPro"]
+        for key in contract:
+            new_contract[key] = contract[key]
+
+        new_details["contratPro"]= new_contract
+
+        db.child("users").child(id).update(
+            {
+                "details":new_details
+            }
+        )
+
+    except:
+        return 404
+
 def update_teacher_data_by_id(db, id, firstname, lastname, email):
     """
     from client id has to be sent in the post request automatically
@@ -406,6 +450,22 @@ def get_student_contract_by_email_or_id(db, id):
             user = db.child("users").child(id).get()
             if user.val()['user_type'] == "student":
                 return user.val()['details']['contratPro'], 200
+        except:
+            return {"message" : "id or email invalid"}, 403
+
+def get_student_absences_by_email_or_id(db, id):
+    if '@' in id:
+        users = db.child("users").get()
+        for user in users:
+            if user.val()['email'] == id:
+                if user.val()['user_type'] == "student":
+                    return user.val()['details']['nbre_absence'], 200 
+        return {"message" : "id or email invalid"}, 403  
+    else:
+        try:
+            user = db.child("users").child(id).get()
+            if user.val()['user_type'] == "student":
+                return user.val()['details']['nbre_absence'], 200
         except:
             return {"message" : "id or email invalid"}, 403
 
