@@ -296,14 +296,14 @@ def update_student_contract_by_email_or_id():
     return Response(status=200)
 
 @app.route('/student/update/info', methods=['PUT'])
-def update_student_info_by_email_or_id():
+def update_student_info_by_id():
     if request.method != 'PUT': 
         return Response(status=404)
 
     id = request.json["id"]
     info = request.json["info"]
 
-    response = users.update_student_info_by_email_or_id(db, id, info)
+    response = users.update_student_info_by_id(db, id, info)
     
     if response == 404:
         return Response(status=404)

@@ -197,7 +197,7 @@ def tutor_migration():
 
 # ici tu choisi les fonctions que tu veux executer
 if __name__ == '__main__':
-    students_migration()
+    # students_migration()
     # staffs_migration()
-    # teachers_migration()
+    teachers_migration()
     # tutor_migration()

@@ -90,16 +90,20 @@ def create_teacher(db, auth, firstname, lastname, email, modules, is_available, 
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     # print("auth_data: ", auth_data)
 
-    teacher = Teacher(
-        firstname=firstname,
-        lastname=lastname,
-        email=email,
-        modules=modules,
-        is_available=is_available,
-        section=section,
-    ).__dict__
+    try:
+        teacher = Teacher(
+            firstname=firstname,
+            lastname=lastname,
+            email=email,
+            modules=modules,
+            is_available=is_available,
+            section=section,
+        ).__dict__
 
-    db.child("users").child(auth_data["localId"]).set(teacher)
+        db.child("users").child(auth_data["localId"]).set(teacher)
+
+    except Exception as e:
+        print(e)
 
 
 def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, enterprise_location, gender, job, date_of_birth, student_apprentices):
@@ -237,7 +241,7 @@ def update_student_contract_by_email_or_id(db, id, contract):
     except:
         return 404
 
-def update_student_info_by_email_or_id(db, id, info):
+def update_student_info_by_id(db, id, info):
     """
     from client id has to be sent in the post request automatically
     """
@@ -249,9 +253,7 @@ def update_student_info_by_email_or_id(db, id, info):
         
 
         db.child("users").child(id).update(
-            {
-                "details":new_data
-            }
+            new_data
         )
 
     except:
