@@ -41,7 +41,10 @@ export default function Report() {
                     return <td>null</td>;
                 }
             }); 
+        } else {
+            return <p>data is not available</p>;
         }
+
     }
 
     function displayModules ()  {

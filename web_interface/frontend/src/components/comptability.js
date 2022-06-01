@@ -33,7 +33,7 @@ export default function Comptability() {
     }
 
     function displayComptability(data) {
-        if (data != null) {
+        if (user.status_code===200) {
             return Object.keys(data).map( (id) => {
               return <td>{data[id].toString()}</td>;
             });
