@@ -67,15 +67,15 @@ export default function Comptability() {
                 <table style={{width: "100%"}} border={2} cellPadding={4}>
                 <thead>
                     <tr>
-                        <td>compta_paid</td>
-                        <td>compta_payment_due</td>
-                        <td>compta_payment_type</td>
-                        <td>entry_level</td>
-                        <td>level_of_exit</td>
-                        <td>still_student</td>
-                        <td>study_lenght</td>
-                        <td>year_of_entry</td>
-                        <td>year_of_exit</td>
+                        <td>compta paid</td>
+                        <td>compta payment due</td>
+                        <td>compta payment type</td>
+                        <td>entry level</td>
+                        <td>level of exit</td>
+                        <td>still student</td>
+                        <td>study lenght</td>
+                        <td>year of entry</td>
+                        <td>year of exit</td>
                     </tr>   
                 </thead>
                 <tbody>

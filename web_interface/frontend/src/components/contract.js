@@ -67,10 +67,10 @@ export default function Contract() {
                 <table style={{width: "100%"}} border={2} cellPadding={4}>
                 <thead>
                     <tr>
-                        <td>company_hired</td>
-                        <td>date_debut_alternance</td>
-                        <td>is_hired</td>
-                        <td>lenght_month_hired</td>
+                        <td>company hired</td>
+                        <td>start date</td>
+                        <td>is hired</td>
+                        <td>lenght month hired</td>
                     </tr>   
                 </thead>
                 <tbody>

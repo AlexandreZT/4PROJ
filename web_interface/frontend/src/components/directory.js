@@ -62,7 +62,7 @@ export default function Directory() {
                         <td>firstname</td>
                         <td>lastname</td>
                         <td>email</td>
-                        <td>user_type</td>
+                        <td>user type</td>
                     </tr>            
                 </thead>
                 <tbody>
