@@ -59,8 +59,8 @@ export default function Directory() {
                 <thead>
                     <tr>
                         {/* <td>id</td> */}
-                        <td>firstname</td>
-                        <td>lastname</td>
+                        <td>first name</td>
+                        <td>last name</td>
                         <td>email</td>
                         <td>user type</td>
                     </tr>            
