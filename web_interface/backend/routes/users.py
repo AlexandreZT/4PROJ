@@ -15,46 +15,49 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     # print("auth_data: ", auth_data)
     
     # les champs du model à None ne seront pas enregistré en base
-    student = Student(
-        # mandatory used for creation, if you got more data you can add more details
-        firstname=firstname.title(),
-        lastname=lastname.upper(),
-        email=email.lower(),
-        campus=campus.lower(),
-        date_of_birth=date_of_birth.lower(),
-        year_of_birth=year_of_birth,
-        street_address=street_address.lower(),
-        gender=gender.lower(),
-        region=region.lower(),
-        level=level,
-        speciality=speciality,
-        contratPro=contratPro,
-        previous_level=previous_level.lower(),
-        nbre_absence=nbre_absence,
-        age_of_entry=age_of_entry,
-        is_hired=is_hired,
-        lenght_month_hired=lenght_month_hired,
-        company_hired=company_hired,
-        entreprise_alternance=entreprise_alternance,
-        entreprise_alternance_address=entreprise_alternance_address,
-        poste_occupe=poste_occupe,
-        secteur_entreprise=secteur_entreprise,
-        date_debut_alternance=date_debut_alternance,
-        entry_level=entry_level,
-        year_of_entry=year_of_entry,
-        year_of_exit=year_of_exit,
-        study_lenght=study_lenght,
-        level_of_exit=level_of_exit,
-        still_student=still_student,
-        compta_payment_type=compta_payment_type,
-        compta_paid=compta_paid,
-        compta_payment_due=compta_payment_due,	
-        compta_relance=compta_relance,
-        pedago=pedago
-    ).__dict__
-    
-            
-    db.child("users").child(auth_data["localId"]).set(student)
+    try:
+        student = Student(
+            # mandatory used for creation, if you got more data you can add more details
+            firstname=firstname.title(),
+            lastname=lastname.upper(),
+            email=email.lower(),
+            campus=campus.lower(),
+            date_of_birth=date_of_birth.lower(),
+            year_of_birth=year_of_birth,
+            street_address=street_address.lower(),
+            gender=gender.lower(),
+            region=region.lower(),
+            level=level,
+            speciality=speciality,
+            contratPro=contratPro,
+            previous_level=previous_level.lower(),
+            nbre_absence=nbre_absence,
+            age_of_entry=age_of_entry,
+            is_hired=is_hired,
+            lenght_month_hired=lenght_month_hired,
+            company_hired=company_hired,
+            entreprise_alternance=entreprise_alternance,
+            entreprise_alternance_address=entreprise_alternance_address,
+            poste_occupe=poste_occupe,
+            secteur_entreprise=secteur_entreprise,
+            date_debut_alternance=date_debut_alternance,
+            entry_level=entry_level,
+            year_of_entry=year_of_entry,
+            year_of_exit=year_of_exit,
+            study_lenght=study_lenght,
+            level_of_exit=level_of_exit,
+            still_student=still_student,
+            compta_payment_type=compta_payment_type,
+            compta_paid=compta_paid,
+            compta_payment_due=compta_payment_due,	
+            compta_relance=compta_relance,
+            pedago=pedago
+        ).__dict__
+     
+        db.child("users").child(auth_data["localId"]).set(student)
+
+    except Exception as e:
+        print(e)
     
 
 def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name):
@@ -66,7 +69,8 @@ def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
     # print("auth_data: ", auth_data)
     
-    staff = Staff(
+    try:
+        staff = Staff(
             # mandatory used for creation, if you got more data you can add more details
             firstname=firstname.title(),
             lastname=lastname.upper(),
@@ -78,7 +82,10 @@ def create_staff(db, auth, firstname, lastname, email, campus, phone, role_name)
         ).__dict__
         # les champs du model à None ne seront pas enregistré en base
 
-    db.child("users").child(auth_data["localId"]).set(staff)
+        db.child("users").child(auth_data["localId"]).set(staff)
+
+    except Exception as e:
+        print(e)
 
 
 def create_teacher(db, auth, firstname, lastname, email, modules, is_available, section):
@@ -117,7 +124,8 @@ def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, e
     # print("auth_data: ", auth_data)
     
     # les champs du model à None ne seront pas enregistré en base
-    tutor = Tutor(
+    try:
+        tutor = Tutor(
             # mandatory used for creation, if you got more data you can add more details
             firstname=firstname.title(),
             lastname=lastname.upper(),
@@ -133,8 +141,10 @@ def create_tutor(db, auth, firstname, lastname, email, phone, enterprise_name, e
 
         ).__dict__
         
+        db.child("users").child(auth_data["localId"]).set(tutor)
 
-    db.child("users").child(auth_data["localId"]).set(tutor)
+    except Exception as e:
+        print(e)
     
     
 def sign_in(auth, email, password):
