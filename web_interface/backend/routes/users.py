@@ -170,32 +170,6 @@ def user_email_already_registred(db, email):
                 return True
     return False
         
-def update_student_data_by_id(db, id, firstname, lastname, email):
-    """
-    from client id has to be sent in the post request automatically
-    """
-    try:
-        data = db.child("users").child(id).get().val()
-
-        if firstname == "":
-            firstname = data['firstname']
-
-        if lastname == "":
-            lastname = data['lastname']
-
-        if email == "":
-            email = data['email']
-        
-        db.child("users").child(id).update(
-            {
-                "firstname" : firstname.title(),
-                "lastname" : lastname.upper(),
-                "email" : email.lower()
-            }
-        )
-
-    except:
-        return 400
 
 def update_student_pedago_by_email_or_id(db, id, pedago):
     """
@@ -442,13 +416,13 @@ def get_student_contract_by_email_or_id(db, id):
         for user in users:
             if user.val()['email'] == id:
                 if user.val()['user_type'] == "student":
-                    return user.val()['details']['contratPro'], 200 
+                    return user.val()['details']['alternant'], 200 
         return {"message" : "id or email invalid"}, 403  
     else:
         try:
             user = db.child("users").child(id).get()
             if user.val()['user_type'] == "student":
-                return user.val()['details']['contratPro'], 200
+                return user.val()['details']['alternant'], 200
         except:
             return {"message" : "id or email invalid"}, 403
 

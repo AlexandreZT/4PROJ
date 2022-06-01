@@ -90,7 +90,7 @@ def get_student_comptability_by_email_or_id(id):
     if request.method != 'GET': 
         return Response(status=404)
 
-    response, status = users.get_student_comptabilty_by_email_or_id(db, id)
+    response, status = users.get_student_comptability_by_email_or_id(db, id)
 
     return jsonify(response), status
 
@@ -252,20 +252,6 @@ def delete_user_with_id():
 
 # -------------- UPDATE DATA
 
-@app.route('/update-student-data-by-id', methods=['PUT'])
-def update_student_data_by_id():
-    if request.method != 'PUT': 
-        return Response(status=404)
-
-    id = request.json["id"]
-    firstname = request.json["firstname"]
-    lastname = request.json["lastname"]
-    email = request.json["email"]
-
-    response = users.update_student_data_by_id(db, id, firstname, lastname, email)
-    if response == 404:
-        return Response(status=404)
-    return Response(status=200)
 
 @app.route('/student/update/pedago', methods=['PUT'])
 def update_student_pedago_by_email_or_id():
@@ -301,7 +287,7 @@ def update_student_contract_by_email_or_id():
         return Response(status=404)
 
     id = request.json["id"]
-    contract = request.json["contratPro"]
+    contract = request.json["contract"]
 
     response = users.update_student_contract_by_email_or_id(db, id, contract)
     
