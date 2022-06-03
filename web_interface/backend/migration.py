@@ -1,4 +1,4 @@
-from models.users import Student, Teacher, Staff, Tutor, MODULE_CODE_LIST
+from models.users import Student, Teacher, Staff, Tutor, MODULE_ECTS_LIST
 from routes import users
 import pandas as pd
 import numpy as np
@@ -109,7 +109,7 @@ def students_migration():
 
             pedago_notes = {}
             for key in student_pedago.keys():
-                if key in MODULE_CODE_LIST:
+                if key in MODULE_ECTS_LIST:
                     pedago_notes.update({key: pedago[key]})
 
             users.create_student(

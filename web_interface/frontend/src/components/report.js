@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {MODULE_CODE_LIST, BASE_URL} from '../js/constant'
+import {MODULE_ECTS_LIST, BASE_URL} from '../js/constant'
 
 export default function Report() {
     const  [user, setUser] = useState({userId: null, data: null, status_code: null});
@@ -34,9 +34,9 @@ export default function Report() {
 
     function displayGrades (data) {
         if (user.status_code===200) { 
-            return Object.keys(MODULE_CODE_LIST).map( (index) => {
-                if (data.hasOwnProperty(MODULE_CODE_LIST[index])){
-                    return <td>{data[MODULE_CODE_LIST[index]]}</td>;
+            return Object.keys(MODULE_ECTS_LIST).map( (index) => {
+                if (data.hasOwnProperty(MODULE_ECTS_LIST[index])){
+                    return <td>{data[MODULE_ECTS_LIST[index]]}</td>;
                 } else {
                     return <td>null</td>;
                 }
@@ -45,9 +45,9 @@ export default function Report() {
     }
 
     function displayModules ()  {
-        return Object.keys(MODULE_CODE_LIST).map( (index) => {
+        return Object.keys(MODULE_ECTS_LIST).map( (index) => {
             return <td>
-                {MODULE_CODE_LIST[index]}
+                {MODULE_ECTS_LIST[index]}
             </td>;
         });
     }
