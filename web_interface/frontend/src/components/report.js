@@ -34,11 +34,16 @@ export default function Report() {
         // continue here
     }
 
-    function displayGrades (data) {
+    function displayPedago (data) {
         if (user.status_code===200) { 
             return Object.keys(MODULE_CODE_LIST).map( (index) => {
                 if (data.hasOwnProperty(MODULE_CODE_LIST[index])){
-                    return <td>{data[MODULE_CODE_LIST[index]]}</td>;
+                    return  <tr> {/* dynamique columns */}
+                        <th scope="row">{MODULE_CODE_LIST[index]}</th> {/* key */}
+                        <td>{data[MODULE_CODE_LIST[index]]["ects"]}</td> {/* ects */}
+                        <td>{data[MODULE_CODE_LIST[index]]["note"]}</td> {/* note */}
+                        <td>{data[MODULE_CODE_LIST[index]]["comment"]}</td> {/* comment */}
+                    </tr> 
                 } else {
                     return <td>null</td>;
                 }
@@ -78,18 +83,19 @@ export default function Report() {
                 </form>
             </div>
             <div>
-                <table style={{width: "100%"}} border={2} cellPadding={4}>
-                <thead>
-                    <tr>
-                        {displayModules()}                        
-                    </tr>            
-                </thead>
-                <tbody>
-                    {displayGrades(user.data)}
-                </tbody> 
+            <table style={{width: "100%"}} border={2} cellPadding={4}>
+                <tr>
+                    <td rowspan="2"></td>
+                </tr>
+                <tr> {/* static headers */}
+                    <th scope="col">ects</th>
+                    <th scope="col">note</th>
+                    <th scope="col">comment</th>
+                </tr>
+                {displayPedago(user.data)}    
             </table>
             </div>
-            <div>
+            {/* <div>
                 <View>
 
                 
@@ -103,7 +109,7 @@ export default function Report() {
                         />
                     </VictoryChart>
                  </View>
-            </div>
+            </div> */}
         </div>
     )
 }

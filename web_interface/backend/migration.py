@@ -113,11 +113,14 @@ def students_migration():
             pedago_notes = {}
             for key in student_pedago.keys():
                 if key in MODULE_ECTS_LIST.keys():
+                    comment = ""
+                    if pedago[key] is not None:
+                        comment = fake.sentence(nb_words=fake.random_int(min=0, max=15))
                     pedago_notes.update(
                         {
                             key: {
                                 "note": pedago[key],
-                                "comment" : fake.sentence(nb_words=fake.random_int(min=0, max=15)),
+                                "comment" : comment,
                                 "ects" : MODULE_ECTS_LIST[key]
                             }
                         }
