@@ -54,13 +54,13 @@ export default function Report() {
 
     }
 
-    function displayModules ()  {
-        return Object.keys(MODULE_CODE_LIST).map( (index) => {
-            return <td>
-                {MODULE_CODE_LIST[index]}
-            </td>;
-        });
-    }
+    // function displayModules ()  {
+    //     return Object.keys(MODULE_CODE_LIST).map( (index) => {
+    //         return <td>
+    //             {MODULE_CODE_LIST[index]}
+    //         </td>;
+    //     });
+    // }
     
     function changeUserSelected(e) {
         let {name, value} = e.target;
@@ -83,11 +83,9 @@ export default function Report() {
                 </form>
             </div>
             <div>
-            <table style={{width: "100%"}} border={2} cellPadding={4}>
-                <tr>
-                    <td rowspan="2"></td>
-                </tr>
+            <table style={{width: "100%"}} border={2} cellPadding={4}>    
                 <tr> {/* static headers */}
+                    <th scope="col">module</th>
                     <th scope="col">ects</th>
                     <th scope="col">note</th>
                     <th scope="col">comment</th>
