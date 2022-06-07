@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {MODULE_CODE_LIST, BASE_URL} from '../js/constant'
+import {VictoryPie, VictoryChart } from 'victory';
+// import View;
 
 export default function Report() {
     const  [user, setUser] = useState({userId: null, data: null, status_code: null});
@@ -86,6 +88,21 @@ export default function Report() {
                     {displayGrades(user.data)}
                 </tbody> 
             </table>
+            </div>
+            <div>
+                <View>
+
+                
+                    <VictoryChart width={350}>
+                        <VictoryPie
+                            data={[
+                                { x: "Cats", y: 35 },
+                                { x: "Dogs", y: 40 },
+                                { x: "Birds", y: 55 }
+                            ]}
+                        />
+                    </VictoryChart>
+                 </View>
             </div>
         </div>
     )

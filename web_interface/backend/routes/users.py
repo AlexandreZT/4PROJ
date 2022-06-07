@@ -9,6 +9,7 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     """
     Used for create manually a user from the web interface, email is unique
     TODO : return email already used if it is.
+    TODO : check dict format of input
     """
     # set my own id (from firestore auth):
     auth_data = auth.create_user_with_email_and_password(email, password=db.generate_key())
@@ -455,20 +456,31 @@ def get_student_absences_by_email_or_id(db, id):
             return {"message" : "id or email invalid"}, 403
 
 def get_student_pedago_credits_by_email_or_id(db, id):
+    pedago = None
     if '@' in id:
         users = db.child("users").get()
         for user in users:
             if user.val()['email'] == id:
                 if user.val()['user_type'] == "student":
-                    return user.val()['details']['pedago'], 200 
+                    pedago = user.val()['details']['pedago'] 
+                    
         return {"message" : "id or email invalid"}, 403  
     else:
         try:
             user = db.child("users").child(id).get()
             if user.val()['user_type'] == "student":
-                return user.val()['details']['pedago'], 200
+                pedago =  user.val()['details']['pedago']
         except:
             return {"message" : "id or email invalid"}, 403
+    
+    count_ects = 0
+    try:
+        for module, data in pedago.items():
+            if "note" in data and float(data["note"]) >= 10:
+                count_ects+=data["ects"]
+        return count_ects, 200
+    except:
+        return {"message" : "pedago invalid"}, 403
 
 def delete_only_user_data_with_id(db, id):    
     db.child("users").child(id).remove()

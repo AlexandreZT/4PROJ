@@ -1,10 +1,11 @@
-from models.users import Student, Teacher, Staff, Tutor, MODULE_CODE_LIST
+from models.users import Student, Teacher, Staff, Tutor
 from routes import users
 import pandas as pd
 import numpy as np
 import requests
 import pyrebase
 import os
+from utils.constants import MODULE_ECTS_LIST
 from dotenv import load_dotenv
 from datetime import datetime
 from faker import Faker
@@ -30,6 +31,8 @@ db=firebase.database()
 auth=firebase.auth()
 
 storage=firebase.storage()
+
+fake = Faker()
 
 # datasets to migrate - convert NaN to None
 campus_staff = pd.read_csv ("../../Data/Liste_CampusStaff.csv", sep=';').astype(object).replace(np.nan, None)
@@ -109,8 +112,16 @@ def students_migration():
 
             pedago_notes = {}
             for key in student_pedago.keys():
-                if key in MODULE_CODE_LIST:
-                    pedago_notes.update({key: pedago[key]})
+                if key in MODULE_ECTS_LIST.keys():
+                    pedago_notes.update(
+                        {
+                            key: {
+                                "note": pedago[key],
+                                "comment" : fake.sentence(nb_words=fake.random_int(min=0, max=15)),
+                                "ects" : MODULE_ECTS_LIST[key]
+                            }
+                        }
+                    )
 
             users.create_student(
                 db=db, 
@@ -158,7 +169,7 @@ def students_migration():
     print(i)
 
 def tutor_migration():
-    fake = Faker()
+    
     number_of_generated_tutors = 20
     for _ in range(number_of_generated_tutors): 
         email = fake.company_email()
@@ -195,9 +206,9 @@ def tutor_migration():
         # get email of student he got
         
 
-# ici tu choisi les fonctions que tu veux executer
+# ici tu choisi les migrations souhaté
 if __name__ == '__main__':
-    # students_migration()
+    students_migration()
     # staffs_migration()
-    teachers_migration()
+    # teachers_migration()
     # tutor_migration()
