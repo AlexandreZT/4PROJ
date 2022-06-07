@@ -64,11 +64,11 @@ def staffs_migration():
     print(i)
 
 def teachers_migration():
-    i = 0
+    i = 20
     for row in teachers.iterrows():
         email=row[1]['email']
         if users.user_email_already_registred(db, email) == False:
-            if i >= 20:
+            if i >= 50:
                 break
             users.create_teacher(
                 db=db, 
@@ -173,7 +173,7 @@ def students_migration():
 
 def tutor_migration():
     
-    number_of_generated_tutors = 20
+    number_of_generated_tutors = 10
     for _ in range(number_of_generated_tutors): 
         email = fake.company_email()
         if users.user_email_already_registred(db, email) == False:
@@ -212,6 +212,6 @@ def tutor_migration():
 # ici tu choisi les migrations souhaté
 if __name__ == '__main__':
     students_migration()
-    # staffs_migration()
-    # teachers_migration()
-    # tutor_migration()
+    staffs_migration()
+    teachers_migration()
+    tutor_migration()
