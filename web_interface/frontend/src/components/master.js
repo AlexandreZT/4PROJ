@@ -27,7 +27,7 @@ export default function Master() {
     useEffect(() => {
         // check is there is a token stored
         let token = localStorage.getItem('localId')
-        if (token==="iamastrangetokenxdplzdontjudgemewhyareyoulaughing") {
+        if (token==="d79a1359d3da7dc28d04d1c1751b4201e94673005e015d89b0fc34cdd88a1587d4eec3a333e39237bfeb515642e933080103c1737e4463f38a9ecbe3c7f8f898") {
             setIsOnline(true)
         }
         else {
@@ -65,12 +65,13 @@ export default function Master() {
                     </div>
                     <div class="main-display">
                         <Routes>
-                            <Route key="0" path="/absence"  element={<Absence />} /> 
-                            <Route key="1" path="/comptability"  element={<Comptability />} /> 
-                            <Route key="2" path="/contract" element={<Contract />} />    
-                            <Route key="3" path="/directory" element={<Directory />} />
-                            <Route key="4" path="/member" element={<Member />} />    
-                            <Route key="5" path="/report" element={<Report />} />
+                            <Route key="0" path="/"  element={<Directory />} /> 
+                            <Route key="1" path="/absence"  element={<Absence />} /> 
+                            <Route key="2" path="/comptability"  element={<Comptability />} /> 
+                            <Route key="3" path="/contract" element={<Contract />} />    
+                            <Route key="4" path="/directory" element={<Directory />} />
+                            <Route key="5" path="/member" element={<Member />} />    
+                            <Route key="6" path="/report" element={<Report />} />
                         </Routes>     
                     </div>                               
                 </div>    

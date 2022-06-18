@@ -24,7 +24,7 @@ export default function Login() {
             }).then(response => {
                 console.log(response)
                 if (response.status === 200) {
-					localStorage.setItem('localId', "iamastrangetokenxdplzdontjudgemewhyareyoulaughing")
+					localStorage.setItem('localId', "d79a1359d3da7dc28d04d1c1751b4201e94673005e015d89b0fc34cdd88a1587d4eec3a333e39237bfeb515642e933080103c1737e4463f38a9ecbe3c7f8f898")
                     window.location.reload(false);
                     return
                 }
