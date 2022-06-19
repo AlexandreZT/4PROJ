@@ -3,48 +3,39 @@ import {BASE_URL} from '../js/constant'
 
 export default function Member() {
     // Forms can be improved by giving a list of input & options instead of duplicates
-    
+    const  [flash, setFlash] = useState({status_code: null});
+
     function createStudent (e) {
         e.preventDefault()
-        if (e.target[0].value === "" || e.target[0].value.length < 2 || 
-            e.target[1].value === "" || e.target[1].value.length < 2 || 
-            e.target[2].value === "" ||
-            e.target[3].value === "" ) { 
-            alert(`
-            alert todo
-            `)
-        } else {
-            fetch(BASE_URL+"/create-student", {
-                method: 'POST',
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({
-                    firstname : e.target[0].value.trim().toLowerCase(),
-                    lastname : e.target[1].value.trim(),
-                    email : e.target[2].value.trim(),
-                    campus : e.target[3].value,
-                    date_of_birth : e.target[4].value,
-                    street_address : e.target[5].value,
-                    gender : e.target[6].value,
-                    region : e.target[7].value,
-                    level : e.target[8].value,
-                    speciality : e.target[9].value,
-                    contratPro : e.target[10].value,
-                    previous_level : e.target[11].value,
-                    age_of_entry : e.target[12].value,
-                    }),
-            }).then(async response => {
-            //   this.setState({
-            //       response: response.status
-            //       })
-              }
-          ).catch(error => {
-            //   this.setState({
-            //       response: 500
-            //   })
-          });
-        }                   
+        fetch(BASE_URL+"/create-student", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                firstname : e.target[0].value.trim().toLowerCase(),
+                lastname : e.target[1].value.trim(),
+                email : e.target[2].value.trim(),
+                campus : e.target[3].value,
+                date_of_birth : e.target[4].value,
+                street_address : e.target[5].value,
+                gender : e.target[6].value,
+                region : e.target[7].value,
+                level : e.target[8].value,
+                speciality : e.target[9].value,
+                contratPro : e.target[10].value,
+                previous_level : e.target[11].value,
+                age_of_entry : e.target[12].value,
+                }),
+        }).then(async response => {
+            setFlash({...flash, status_code: response.status});
+            console.log(response.status)
+            }
+        ).catch(error => {
+            setFlash({...flash, status_code: 500});
+            console.log(error)
+        });
+                           
     }
 
     const display_student_form = () => {
@@ -153,55 +144,32 @@ export default function Member() {
                     </div>
                     <br/>
                     <button type="submit" className="btn btn-primary btn-block">Create</button>
-                    {/* {   
-                        this.state.response===null?
-                        <p></p>:
-                        this.state.response===200?
-                        <p style={{color:"green"}}>User created !</p>:
-                        this.state.response===500 &&
-                        <p style={{color:"red"}}>Something went wrong !</p>
-                    } */}
                 </form>
             </div>
-        )       
-        // age_of_entry=None,
-
+        )
     }
     
     function createStaff (e) {
-        e.preventDefault()
-        if (e.target[0].value === "" || e.target[0].value.length < 2 || 
-            e.target[1].value === "" || e.target[1].value.length < 2 || 
-            e.target[2].value === "" ||
-            e.target[3].value === "" ) { 
-            alert(`
-            alert todo
-            `)
-        } else {                
-            fetch(BASE_URL+"/create-staff", {
-                method: 'POST',
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({
-                    firstname : e.target[0].value.trim().toLowerCase(),
-                    lastname : e.target[1].value.trim(),
-                    email : e.target[2].value.trim(),
-                    campus : e.target[3].value.trim(),
-                    phone : e.target[4].value,
-                    role_name : e.target[5].value.trim()
-                }),
-            }).then(async response => {
-            //   this.setState({
-            //       response: response.status
-            //       })
-              }
-          ).catch(error => {
-            //   this.setState({
-            //       response: 500
-            //   })
-          });
-        }                   
+        e.preventDefault()             
+        fetch(BASE_URL+"/create-staff", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                firstname : e.target[0].value.trim().toLowerCase(),
+                lastname : e.target[1].value.trim(),
+                email : e.target[2].value.trim(),
+                campus : e.target[3].value.trim(),
+                phone : e.target[4].value,
+                role_name : e.target[5].value.trim()
+            }),
+        }).then(async response => {
+            setFlash({...flash, status_code: response.status});
+            }
+        ).catch(error => {
+            setFlash({...flash, status_code: 500});
+        });                
     }
 
     const display_staff_form = () => {
@@ -251,55 +219,34 @@ export default function Member() {
                     </div>
                     <br/>
                     <button type="submit" className="btn btn-primary btn-block">Create</button>
-                    {/* {   
-                        this.state.response===null?
-                        <p></p>:
-                        this.state.response===200?
-                        <p style={{color:"green"}}>User created !</p>:
-                        this.state.response===500 &&
-                        <p style={{color:"red"}}>Something went wrong !</p>
-                    } */}
                 </form>
             </div>
         )
     }
 
     function createTutor (e) {
-        e.preventDefault()
-        if (e.target[0].value === "" || e.target[0].value.length < 2 || 
-            e.target[1].value === "" || e.target[1].value.length < 2 || 
-            e.target[2].value === "" ||
-            e.target[3].value === "" ) { 
-            alert(`
-            alert todo
-            `)
-        } else {                
-            fetch(BASE_URL+"/create-tutor", {
-                method: 'POST',
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({
-                    firstname : e.target[0].value.trim().toLowerCase(),
-                    lastname : e.target[1].value.trim(),
-                    email : e.target[2].value.trim(),
-                    phone : e.target[3].value,                    
-                    gender : e.target[4].value.trim(),
-                    enterprise_name : e.target[5].value.trim(),
-                    enterprise_location : e.target[6].value.trim(),
-                    job : e.target[7].value.trim(),
-                }),
-            }).then(async response => {
-            //   this.setState({
-            //       response: response.status
-            //       })
-              }
-          ).catch(error => {
-            //   this.setState({
-            //       response: 500
-            //   })
-          });
-        }                   
+        e.preventDefault()           
+        fetch(BASE_URL+"/create-tutor", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                firstname : e.target[0].value.trim().toLowerCase(),
+                lastname : e.target[1].value.trim(),
+                email : e.target[2].value.trim(),
+                phone : e.target[3].value,                    
+                gender : e.target[4].value.trim(),
+                enterprise_name : e.target[5].value.trim(),
+                enterprise_location : e.target[6].value.trim(),
+                job : e.target[7].value.trim(),
+            }),
+        }).then(async response => {
+            setFlash({...flash, status_code: response.status});
+            }
+        ).catch(error => {
+            setFlash({...flash, status_code: 500});
+        });                 
     }
     
     const display_tutor_form = () => {
@@ -351,51 +298,30 @@ export default function Member() {
                     </div>
                     <br/>
                     <button type="submit" className="btn btn-primary btn-block">Create</button>
-                    {/* {   
-                        this.state.response===null?
-                        <p></p>:
-                        this.state.response===200?
-                        <p style={{color:"green"}}>User created !</p>:
-                        this.state.response===500 &&
-                        <p style={{color:"red"}}>Something went wrong !</p>
-                    } */}
                 </form>
             </div>
         )
     }
 
     function createTeacher (e) {
-        e.preventDefault()
-        if (e.target[0].value === "" || e.target[0].value.length < 2 || 
-            e.target[1].value === "" || e.target[1].value.length < 2 || 
-            e.target[2].value === "" ||
-            e.target[3].value === "" ) { 
-            alert(`
-            alert todo
-            `)
-        } else {                
-            fetch(BASE_URL+"/create-teacher", {
-                method: 'POST',
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({
-                    firstname : e.target[0].value.trim().toLowerCase(),
-                    lastname : e.target[1].value,
-                    email : e.target[2].value.trim(),
-                    section : e.target[3].value.trim(),
-                }),
-            }).then(async response => {
-            //   this.setState({
-            //       response: response.status
-            //       })
-              }
-          ).catch(error => {
-            //   this.setState({
-            //       response: 500
-            //   })
-          });
-        }                   
+        e.preventDefault()           
+        fetch(BASE_URL+"/create-teacher", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                firstname : e.target[0].value.trim().toLowerCase(),
+                lastname : e.target[1].value,
+                email : e.target[2].value.trim(),
+                section : e.target[3].value.trim(),
+            }),
+        }).then(async response => {
+            setFlash({...flash, status_code: response.status});
+            }
+        ).catch(error => {
+            setFlash({...flash, status_code: 500});
+        });                     
     }
 
     const display_teacher_form = () => {
@@ -424,14 +350,6 @@ export default function Member() {
                     </div>
                     <br/>
                     <button type="submit" className="btn btn-primary btn-block">Create</button>
-                    {/* {   
-                        this.state.response===null?
-                        <p></p>:
-                        this.state.response===200?
-                        <p style={{color:"green"}}>User created !</p>:
-                        this.state.response===500 &&
-                        <p style={{color:"red"}}>Something went wrong !</p>
-                    } */}
                 </form>
             </div>
         )
@@ -444,12 +362,16 @@ export default function Member() {
     function changeUserForm(e) {
         let {name, value} = e.target;
         if (value === "student"){
+            setFlash({...flash, status_code: null});
             setState({...state, chosen_user: value, displayed_form: display_student_form()});
         } else if (value === "staff") {
+            setFlash({...flash, status_code: null});
             setState({...state, chosen_user: value, displayed_form: display_staff_form()});
         } else if (value === "tutor") {
+            setFlash({...flash, status_code: null});
             setState({...state, chosen_user: value, displayed_form: display_tutor_form()});
         } else if (value === "teacher") {
+            setFlash({...flash, status_code: null});
             setState({...state, chosen_user: value, displayed_form: display_teacher_form()});
         }
     }
@@ -472,6 +394,14 @@ export default function Member() {
                 <option value="teacher">teacher</option>
             </select>
             {state.displayed_form}
+            {   
+                flash.status_code===null?
+                <p></p>:
+                flash.status_code===200?
+                <p style={{color:"green", textAlign:"center"}}>User created !</p>:
+                flash.status_code===500 &&
+                <p style={{color:"red",  textAlign:"center"}}>Something went wrong !</p>
+            }
         </div>
     )
 }
