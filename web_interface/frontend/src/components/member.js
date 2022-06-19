@@ -117,8 +117,8 @@ export default function Member() {
                     <div className="form-group">
                         <label>Alternance*</label><br/>
                         <select name="cp" required>
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>                            
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>                            
                         </select>
                     </div>
                     <br/>

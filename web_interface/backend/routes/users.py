@@ -19,6 +19,11 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     if nbre_absence is None:
         nbre_absence = 0
 
+    if contratPro == "true":
+        contratPro=True
+    else:
+        contratPro=False
+
     try:
         student = Student(
             # mandatory used for creation, if you got more data you can add more details

@@ -43,6 +43,7 @@ export default function Absences() {
                 <td>{data[id]["lastname"].toUpperCase()}</td>
                 <td>{data[id]["email"]}</td>
                 <td>{data[id]["details"]["nbre_absence"].toString()}</td>
+                <td>{data[id]["details"]["contratPro"].toString()}</td>
               </tr>;
             });
         } else {
@@ -63,6 +64,7 @@ export default function Absences() {
                         <td>last name</td>
                         <td>email</td>
                         <td>absences number</td>
+                        <td>alternant</td>
                     </tr>            
                 </thead>
                 <tbody>
