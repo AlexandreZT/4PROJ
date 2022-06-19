@@ -2,7 +2,7 @@ import pyrebase
 import os
 from dotenv import load_dotenv
 from routes import users
-from flask import Flask, jsonify, request, abort, Response
+from flask import Flask, jsonify, request, abort, Response, render_template
 from flask_cors import CORS, cross_origin
 import json
 
@@ -37,7 +37,7 @@ storage=firebase.storage()
 def home():
     if request.method != 'GET': 
         return Response(status=404)
-    return Response(response="(╯‵□′)╯︵┻━┻", status=200)
+    return render_template("welcome_api.html")
 
 @app.route('/users', methods=['GET'])
 def get_all_users_data():
