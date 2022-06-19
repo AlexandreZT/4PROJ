@@ -44,24 +44,11 @@ export default function Master() {
         return (
             <Router>
                 <div>
-                    <header>
-                        <nav>  
-                            <ul>
-                            <li> <a href="#"> Profile </a>  
-                            </li>  
-                            <li>  
-                            <a href="#"> Settings </a>  
-                            </li>
-                            <li style={{paddingRight: 0}}>  
-                                <a href="#" onClick={disconnect}> Logout </a>  
-                            </li>   
-                            </ul>  
-                        </nav>  
-                    </header>
                     <div class="sidenav">
                         {headerMenuItems.map((values, index) =>
                             <li><Link key={index} to={values.href}>{values.title}</Link></li>                             
                         )}
+                        <li><a href="#contact" onClick={disconnect}>Logout</a></li>
                     </div>
                     <div class="main-display">
                         <Routes>
@@ -72,7 +59,8 @@ export default function Master() {
                             <Route key="4" path="/directory" element={<Directory />} />
                             <Route key="5" path="/member" element={<Member />} />    
                             <Route key="6" path="/report" element={<Report />} />
-                        </Routes>     
+                        </Routes>   
+                        
                     </div>                               
                 </div>    
           </Router> 

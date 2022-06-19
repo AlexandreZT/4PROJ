@@ -87,8 +87,8 @@ export default function Report() {
         <div>
             <div>
                 <form>
-                    <label>Select User:&nbsp;</label>
-                    <input onChange={changeUserSelected} placeholder="Enter User Email or Id"/>                    
+                    <label>Select Student:&nbsp;</label>
+                    <input onChange={changeUserSelected} placeholder="Enter Student Email"/>                    
                 </form>
             </div>
             <div>
