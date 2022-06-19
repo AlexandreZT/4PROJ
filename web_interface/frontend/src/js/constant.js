@@ -2,6 +2,6 @@ export const MODULE_CODE_LIST = ["1WORK","1WDEV","1ITWO","1TEAM","1PYTH","1O365"
 
 export const NUMBER_OF_MODULES = MODULE_CODE_LIST.length
 
-export const BASE_URL = "http://127.0.0.1:5000"
+// export const BASE_URL = "http://127.0.0.1:5000"
 
-// export const BASE_URL = "https://4projgroup24.pythonanywhere.com"
+export const BASE_URL = "https://4projgroup24.pythonanywhere.com"

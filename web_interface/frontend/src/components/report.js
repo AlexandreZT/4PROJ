@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {MODULE_CODE_LIST, BASE_URL} from '../js/constant'
-import {VictoryPie, VictoryChart } from 'victory';
-// import View;
+import {VictoryPie} from 'victory';
+
 
 export default function Report() {
-    const  [user, setUser] = useState({userId: null, data: null, status_code: null});
+    const  [user, setUser] = useState({userId: null, data: null, status_code: null, ects: null});
 
     function load_directory (userId, callback) {
         var axios = require('axios');
@@ -28,9 +28,19 @@ export default function Report() {
         
     }
     
+    function calculate_ects(data) {
+        let ects = 0;
+        Object.keys(data).forEach(key => {
+            if (data[key]["note"] && data[key]["note"] > 10) { // if not undefined
+                ects+=data[key]["ects"]
+            } 
+        });
+        return ects
+    }
     function updatedata (userId, data, status_code) { // Call load_directory to get your data
-        console.log("userId, data, code", userId, data, status_code)
-        setUser({...user, userId: userId, data: data, status_code: status_code});
+        // console.log("userId, data, code", userId, data, status_code)
+        let ects = calculate_ects(data);
+        setUser({...user, userId: userId, data: data, status_code: status_code, ects: ects}); // 
         // continue here
     }
 
@@ -46,12 +56,11 @@ export default function Report() {
                     </tr> 
                 } else {
                     return <td>null</td>;
-                }
+                }   
             }); 
         } else {
             return <p>data is not available</p>;
         }
-
     }
 
     // function displayModules ()  {
@@ -93,21 +102,17 @@ export default function Report() {
                 {displayPedago(user.data)}    
             </table>
             </div>
-            {/* <div>
-                <View>
-
-                
-                    <VictoryChart width={350}>
-                        <VictoryPie
-                            data={[
-                                { x: "Cats", y: 35 },
-                                { x: "Dogs", y: 40 },
-                                { x: "Birds", y: 55 }
-                            ]}
-                        />
-                    </VictoryChart>
-                 </View>
-            </div> */}
+            <div style={{height: "300px", width: "50%"}}>
+            { user.status_code===200 && user.ects!==null &&
+                <VictoryPie
+                    colorScale={["navy", "blue"]}
+                    data={[
+                        { x: "obtenu : "+(user.ects).toString(), y: user.ects },
+                        { x: "restant : "+(60-user.ects).toString(), y: 60-user.ects },
+                    ]}
+                /> 
+            }
+            </div>
         </div>
     )
 }
