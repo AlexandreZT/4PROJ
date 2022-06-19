@@ -1,17 +1,1982 @@
-<h1>BCES API</h1>
-
-<h3>examples :</h3>
-
-<div style="padding-left:50px;">
-    <a href="/users">/users</a><br/><br/>
-
-    <a href="/students">/students</a><br/><br/>
-
-    <a href="/tutors">/tutors</a><br/><br/>
-
-    <a href="/teachers">/teachers</a><br/><br/>
-
-    <a href="/staffs">/staffs</a><br/><br/>
-</div>
-
-<p>Check the Guide API for more routes</p>
+<ol>
+    <h3><span style="color: #212121;">Get all users</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/users</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"020I5l7Ygncpl6bjUWLNdu1Nkh32":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;"email":"elisabetgillimgham@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Elisabet",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"Gillimgham",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"teacher"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"03d0qDIHEfYS8GThSotM7FdpQkp2":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":"rodricklaven@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Rodrick",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"LAVEN",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"staff"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;}</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get user by id</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/user/&lt;id&gt;</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"email":"rodricklaven@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"firstname":"Rodrick",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"lastname":"LAVEN",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"user_type":"staff"</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get all students</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/students</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"2A11rlZ6EHSRfTS0LtL4USVIyji2":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":"marjigalliard@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Marji",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"GALLIARD",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"student"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"5CXhlrna11g60hsejiQPAsC1CWI2":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":"nelsonfairest@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Nelson",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"FAIREST",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"student"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;}</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get all staffs</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/staffs</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"03d0qDIHEfYS8GThSotM7FdpQkp2":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":"rodricklaven@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Rodrick",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"LAVEN",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"staff"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"0E9KRqyEObcEWe0v7qaBHWnAyFQ2":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":"trudeydurbann@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Trudey",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"DURBANN",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"staff"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;}</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get all tutors</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/tutors</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"2V2HcSMU4KcxdE2cfYAlXhBiBKD2":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":"davisjillian@crawford.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Kelly",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"DEAN",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"tutor"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"5j7IzJHJolYmtpuVnW2mt63yUXF3":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":"sextonarthur@lutz.biz",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Edward",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"CAIN",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"tutor"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;}</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get all teachers</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/teachers</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"020I5l7Ygncpl6bjUWLNdu1Nkh32":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":{},</span><span style="color: #212121;">&nbsp;"email":"elisabetgillimgham@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Elisabet",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"Gillimgham",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"teacher"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;"1Xp3sHcMZnNVdZ6zQ0QeaS4rpTH2":{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":{},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"email":"sutherlandaggott@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname":"Sutherland",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname":"Aggott",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type":"teacher"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;}</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get student pedago by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/</span><span style="color: #212121;">student/&lt;id&gt;/pedago</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"2AWSP": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"comment": "",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ects": 3,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"note": "14.81"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"2PHPD": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"comment": "Various lay should exactly claim.",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ects": 2,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"note": "14.25"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"3ANDM": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"comment": "Use.",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ects": 3,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"note": "2.94"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"3CCNA": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"comment": "Huge family account compare including.",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ects": 4,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"note": "12.77"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">403</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"message": "id or email invalid"</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get student comptability by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/student/&lt;id&gt;/comptability</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"compta_paid": </span><span style="color: #212121;"><strong>true</strong></span><span style="color: #212121;">,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"compta_payment_due": 0.0,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"compta_payment_type": "Comptant",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"entry_level": "B.ENG 2",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"level_of_exit": "M.ENG 1",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"still_student": </span><span style="color: #212121;"><strong>false</strong></span><span style="color: #212121;">,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"study_lenght": 3.0,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"year_of_entry": 2015.0,</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"year_of_exit": 2018.0</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">403</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"message": "id or email invalid"</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get student contract by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/student/&lt;id&gt;/contract</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"date_debut_alternance": "None",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"is_hired": </span><span style="color: #212121;"><strong>false</strong></span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">403</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"message": "id or email invalid"</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get student absences by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/student/&lt;id&gt;/absences</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">8.0</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">403</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"message": "id or email invalid"</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get student credits by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/student/&lt;id&gt;/pedago/credits</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">42</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">403</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"message": "pedago invalid"</span><span style="color: #212121;">}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Get all data</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">GET</span></td>
+    <td><span style="color: #212121;">/data</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">{</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;"users": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"020I5l7Ygncpl6bjUWLNdu1Nkh32": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modules": "5ITIL",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"section": "Caen21"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email": "elisabetgillimgham@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname": "Elisabet",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname": "Gillimgham",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type": "teacher"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"03d0qDIHEfYS8GThSotM7FdpQkp2": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details": {</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"campus": "LILLE",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"role_name": "Full Professor"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email": "rodricklaven@supinfo.com",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstname": "Rodrick",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastname": "LAVEN",</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user_type": "staff"</span><span style="color: #212121;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Enregistrer des donn&eacute;es</span></p>
+    <ol>
+    <h3><span style="color: #212121;">Register a student</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">POST</span></td>
+    <td><span style="color: #212121;">/create-student</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">email</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">firstname</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">lastname</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">campus</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">date_of_birth</span></td>
+    <td><span style="color: #212121;">date</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">year_of_birth</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">street_address</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">gender</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">region</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">level</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">speciality</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">contratPro</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">previous_level</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">nbre_absence</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">age_of_entry</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">is_hired</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">lenght_month_hired</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">company_hired</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">entreprise_alternance</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">entreprise_alternance_address</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">poste_occupe</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">secteur_entreprise</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">date_debut_alternance</span></td>
+    <td><span style="color: #212121;">date</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">entry_level</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">year_of_entry</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">year_of_exit</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">study_lenght</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">level_of_exit</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">still_student</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta_payment_type</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta_paid</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta_payment_due</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta_relance</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;"><strong>200</strong></span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Register a staff</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">POST</span></td>
+    <td><span style="color: #212121;">/create-staff</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">email</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">firstname</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">lastname</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">campus</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">phone</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">role_name</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Register a teacher</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">POST</span></td>
+    <td><span style="color: #212121;">/create-teacher</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">email</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">firstname</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">lastname</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">modules</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">is_available</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">section</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Register a tutor</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">POST</span></td>
+    <td><span style="color: #212121;">/create-tutor</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">email</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">firstname</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">lastname</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">phone</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">entrerprise_name</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">enterprise_location</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">gender</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">job</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">date_of_birth</span></td>
+    <td><span style="color: #212121;">date</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">student_apprentrices</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Sign in</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">POST</span></td>
+    <td><span style="color: #212121;">/sign-in</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">email</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">password</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">403</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Forgotten password</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">POST</span></td>
+    <td><span style="color: #212121;">/f</span><span style="color: #212121;">orgotten-password</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">email</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td>{&nbsp;&nbsp;&nbsp;&nbsp;"response": "Un mail a &eacute;t&eacute; envoy&eacute; pour reset votre mot de passe."}</td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">403</span></td>
+    <td>{&nbsp;&nbsp;&nbsp;&nbsp;"response": "Le mail n&rsquo;existe pas."}</td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Modifier des donn&eacute;es</span></p>
+    <ol>
+    <h3><span style="color: #212121;">Modify student info data by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">PUT</span></td>
+    <td><span style="color: #212121;">/student/update/info</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">id</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">info</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Info keys</strong></span></td>
+    <td><span style="color: #212121;"><strong>Info values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">campus</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">date_of_birth</span></td>
+    <td><span style="color: #212121;">date</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">year_of_birth</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">street_address</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">gender</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">region</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">level</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">speciality</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">contratPro</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">previous_level</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">nbre_absence</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">age_of_entry</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Modify student alternant data by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">PUT</span></td>
+    <td><span style="color: #212121;">/</span><span style="color: #212121;">student/update/contract</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">id</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">alternant</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Alternant keys</strong></span></td>
+    <td><span style="color: #212121;"><strong>Alternant values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">is_hired</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">lenght_month_hired</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">company_hired</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">entreprise_alternance</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">entreprise_alternance_address</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">poste_occupe</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">secteur_entreprise</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">date_debut_alternance</span></td>
+    <td><span style="color: #212121;">date</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Modify student comptability data by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">PUT</span></td>
+    <td><span style="color: #212121;">/student/update/comptability</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">id</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Compta keys</strong></span></td>
+    <td><span style="color: #212121;"><strong>Compta values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">entry_level</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">year_of_entry</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">year_of_exit</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">study_lenght</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">level_of_exit</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">still_student</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta_payment_type</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta_paid</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta_payment_due</span></td>
+    <td><span style="color: #212121;">integer</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">compta_relance</span></td>
+    <td><span style="color: #212121;">boolean</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Modify student pedago data by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">PUT</span></td>
+    <td><span style="color: #212121;">/student/update/pedago</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">id</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">pedago</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Pedago keys</strong></span></td>
+    <td><span style="color: #212121;"><strong>Pedago values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">1WORK</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">1WDEV</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">1ITWO</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">1TEAM</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">1PYTH</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">1O365</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">2JAVA</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">2PHPD</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">2GRAP</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">2DTTL</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">2DVST</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">2AWSP</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">3ANDM</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">3CCNA</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">3ASPC</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">3LPIC</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">3AGIL</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">4AZUR</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">4BOSS</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">4GDPR</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">4DOCKR</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">4CHGM</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">4BINT</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">4SECU</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">5CCNA</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">5DATA</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">5DOOP</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">5ITIL</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">5RBIG</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">5BLOC</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">5MDD</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>module keys</strong></span></td>
+    <td><span style="color: #212121;"><strong>module values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">note</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">comment</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">false</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Modify staff data by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">PUT</span></td>
+    <td><span style="color: #212121;">/</span><span style="color: #212121;">update-staff-data-by-id</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">id</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">info</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Modify teacher data by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">PUT</span></td>
+    <td><span style="color: #212121;">/</span><span style="color: #212121;">update-teacher-data-by-id</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">id</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">info</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Modify tutor data by id or email</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">PUT</span></td>
+    <td><span style="color: #212121;">/</span><span style="color: #212121;">update-tutor-data-by-id</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">id</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">info</span></td>
+    <td><span style="color: #212121;">dict</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Supprimer des donn&eacute;es</span></p>
+    <ol>
+    <h3><span style="color: #212121;">Delete user data with id</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">DELETE</span></td>
+    <td><span style="color: #212121;">/</span><span style="color: #212121;">delete-only-user-data-with-id</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">id</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <ol>
+    <h3><span style="color: #212121;">Delete user with credentials</span></h3>
+    </ol>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>Requ&ecirc;te</strong></span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>M&eacute;thode</strong></span></td>
+    <td><span style="color: #212121;"><strong>URL</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">DELETE</span></td>
+    <td><span style="color: #212121;">/</span><span style="color: #212121;">delete-user-with-credentials</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Params</strong></span></td>
+    <td><span style="color: #212121;"><strong>Values</strong></span></td>
+    <td><span style="color: #212121;"><strong>Required</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">email</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">password</span></td>
+    <td><span style="color: #212121;">string</span></td>
+    <td><span style="color: #212121;">true</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p><span style="color: #212121; text-decoration: underline;"><strong>R&eacute;ponse</strong></span></p>
+    <p><span style="color: #212121;">Content-Type : application/json</span></p>
+    <div>
+    <table border="1">
+    <tbody>
+    <tr>
+    <td><span style="color: #212121;"><strong>Status</strong></span></td>
+    <td><span style="color: #212121;"><strong>message</strong></span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">200</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    <tr>
+    <td><span style="color: #212121;">404</span></td>
+    <td><span style="color: #212121;">null</span></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
