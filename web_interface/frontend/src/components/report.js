@@ -102,7 +102,7 @@ export default function Report() {
                 {displayPedago(user.data)}    
             </table>
             </div>
-            <div style={{height: "300px", width: "50%"}}>
+            <div style={{height: "300px"}}>
             { user.status_code===200 && user.ects!==null &&
                 <VictoryPie
                     colorScale={["navy", "blue"]}
