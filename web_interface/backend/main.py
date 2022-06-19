@@ -8,7 +8,7 @@ import json
 
 app = Flask(__name__)
 
-CORS(app)
+CORS(app, resources={r"*": {"origins": ["http://localhost:3000", "https://proj-1cb81.web.app/"]}})
 
 load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
 
