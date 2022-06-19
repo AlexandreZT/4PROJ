@@ -9,10 +9,10 @@ class User:
         self.firstname = firstname
 
     def get_firstname(self):
-        print(f"Hey {self.firstname}")
+        return self.firstname
 
     def get_user_type(self):
-        print(f"You're {self.user_type}")
+        return self.user_type
 
 class Student(User):
     def __init__(self,
@@ -129,7 +129,7 @@ class Teacher(User):
         }
     
     def teaching_location(self):
-        return self.details["campus"]
+        return self.details["section"]
 
 class Tutor(User):
     def __init__(self,

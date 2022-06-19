@@ -64,11 +64,11 @@ def staffs_migration():
     print(i)
 
 def teachers_migration():
-    i = 20
+    i = 0
     for row in teachers.iterrows():
         email=row[1]['email']
         if users.user_email_already_registred(db, email) == False:
-            if i >= 50:
+            if i >= 15:
                 break
             users.create_teacher(
                 db=db, 

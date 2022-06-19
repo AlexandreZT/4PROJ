@@ -53,7 +53,7 @@ student = Student(
 """
 Student data access
 """
-student.get_firstname()
+print(student.get_firstname())
 # student.get_user_type()
 # student.change_firstname("Guillaume")
 # print(student.__dict__)
@@ -71,10 +71,7 @@ student.get_firstname()
 teacher = Teacher(
     firstname="AAA",
     lastname="Teacher",
-    email="aaa.teacher@supinfo.com",
-    # optionnal :
-    campus="Lyon"
-    
+    email="aaa.teacher@supinfo.com", 
 )
 teaching_location = teacher.teaching_location()
 print(teaching_location)
@@ -84,10 +81,7 @@ print(teaching_location)
 staff = Staff(
     firstname="AAA",
     lastname="Staff",
-    email="aaa.bobo@supinfo.com",
-    # optionnal :
-    campus="Lyon"
-    
+    email="aaa.bobo@supinfo.com",  
 )
 working_location = staff.working_location()
 print(working_location)

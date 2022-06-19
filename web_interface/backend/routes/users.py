@@ -16,6 +16,9 @@ def create_student(db, auth, firstname, lastname, email, campus, date_of_birth, 
     # print("auth_data: ", auth_data)
     
     # les champs du model à None ne seront pas enregistré en base
+    if nbre_absence is None:
+        nbre_absence = 0
+
     try:
         student = Student(
             # mandatory used for creation, if you got more data you can add more details
@@ -374,7 +377,6 @@ def get_all_teachers_data(db):
 def get_all_staffs_data(db):
     users = db.child("users").get()
     data={}
-    print("route/get_all_staffs_data")
     for user in users.each():
         if user.val()['user_type'] == "staff":
             data.update({user.key() : user.val()})
@@ -476,7 +478,7 @@ def get_student_pedago_credits_by_email_or_id(db, id):
     count_ects = 0
     try:
         for module, data in pedago.items():
-            if "note" in data and float(data["note"]) >= 10:
+            if "note" in data and int(data["note"].split('.')[0]) >= 10:
                 count_ects+=data["ects"]
         return count_ects, 200
     except:

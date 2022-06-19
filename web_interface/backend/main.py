@@ -5,7 +5,6 @@ from routes import users
 from flask import Flask, jsonify, request, abort, Response
 from flask_cors import CORS, cross_origin
 import json
-from datetime import datetime   
 
 app = Flask(__name__)
 
